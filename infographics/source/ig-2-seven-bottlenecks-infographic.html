@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 7 Bottlenecks Killing Your Hours — IG-2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Archivo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD900;
+    --black: #111111;
+    --ink: #1c1c1c;
+    --paper: #FAF8F2;
+    --grey: #6b6b66;
+    --rule: #e3e0d6;
+    --card: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+    width: 1000px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  .poster { background: var(--paper); }
+
+  /* ===== TOP BAR ===== */
+  .topbar {
+    background: var(--black);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    border-bottom: 5px solid var(--yellow);
+  }
+  .topbar .brand {
+    font-family: 'Anton', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.04em;
+  }
+  .topbar .brand span { color: var(--yellow); }
+  .topbar .slot {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--yellow);
+  }
+
+  /* ===== MASTHEAD ===== */
+  .masthead {
+    background: var(--black);
+    color: #fff;
+    padding: 54px 48px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::after {
+    content: "";
+    position: absolute;
+    right: -140px; top: -140px;
+    width: 420px; height: 420px;
+    background: var(--yellow);
+    transform: rotate(18deg);
+    opacity: 0.07;
+  }
+  .kicker {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 8px 16px 7px;
+    margin-bottom: 26px;
+  }
+  .masthead h1 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 78px;
+    line-height: 0.98;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+  .masthead h1 .hl { color: var(--yellow); }
+  .masthead .deck {
+    font-style: italic;
+    font-size: 25px;
+    line-height: 1.45;
+    color: #d8d5cb;
+    max-width: 720px;
+    margin-top: 24px;
+  }
+
+  /* ===== PAIN STRIP ===== */
+  .pain {
+    background: var(--yellow);
+    color: var(--black);
+    padding: 30px 48px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .pain .tag {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: var(--black);
+    color: var(--yellow);
+    padding: 8px 14px;
+    flex-shrink: 0;
+  }
+  .pain .line {
+    font-family: 'Newsreader', serif;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+  .pain .line b { font-weight: 700; }
+
+  /* ===== BOTTLENECK GRID (HERO) ===== */
+  .grid {
+    padding: 60px 48px 54px;
+    background: var(--paper);
+  }
+  .grid-head {
+    text-align: center;
+    margin-bottom: 42px;
+  }
+  .grid-head h2 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    text-transform: uppercase;
+    line-height: 1.05;
+  }
+  .grid-head p {
+    font-size: 19px;
+    color: var(--grey);
+    margin-top: 12px;
+  }
+
+  .row {
+    background: var(--card);
+    border: 2px solid var(--black);
+    box-shadow: 7px 7px 0 var(--black);
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    padding: 22px 28px;
+    margin-bottom: 22px;
+  }
+  .row .no {
+    font-family: 'Anton', sans-serif;
+    font-size: 62px;
+    line-height: 0.9;
+    color: var(--black);
+    flex-shrink: 0;
+    width: 86px;
+    text-align: center;
+  }
+  .row .body { flex: 1; }
+  .row .quote {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 1.28;
+    color: var(--ink);
+  }
+  .row .fixed {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+    padding: 8px 14px;
+    border: 2px solid var(--black);
+  }
+  .row .fixed .lbl {
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 11px;
+    margin-right: 6px;
+  }
+
+  /* climax row 7 */
+  .row.climax {
+    background: var(--black);
+    color: #fff;
+  }
+  .row.climax .no { color: var(--yellow); }
+  .row.climax .quote { color: #fff; }
+  .row.climax .fixed {
+    background: var(--yellow);
+    color: var(--black);
+    border-color: var(--yellow);
+  }
+
+  /* ===== STAT BAND ===== */
+  .stats {
+    background: var(--black);
+    color: #fff;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .stat {
+    padding: 40px 24px;
+    text-align: center;
+    border-right: 1px solid #2c2c28;
+  }
+  .stat:last-child { border-right: none; }
+  .stat .num {
+    font-family: 'Anton', sans-serif;
+    font-size: 60px;
+    line-height: 1;
+    color: var(--yellow);
+  }
+  .stat .lab {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.35;
+    margin-top: 12px;
+    color: #d8d5cb;
+  }
+
+  /* ===== TRY THIS ===== */
+  .tryit {
+    background: var(--paper);
+    padding: 44px 48px;
+    position: relative;
+  }
+  .tryit .tag {
+    display: inline-block;
+    background: var(--black);
+    color: var(--yellow);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 8px 15px;
+    margin-bottom: 18px;
+  }
+  .tryit p {
+    font-size: 22px;
+    line-height: 1.5;
+    max-width: 780px;
+  }
+  .tryit p .mark {
+    background: linear-gradient(transparent 58%, var(--yellow) 58%, var(--yellow) 94%, transparent 94%);
+    padding: 0 3px;
+    font-weight: 600;
+  }
+
+  /* ===== CTA FOOTER ===== */
+  .cta {
+    background: var(--black);
+    color: #fff;
+    padding: 52px 48px 44px;
+    text-align: center;
+  }
+  .cta h2 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+  .cta h2 .hl { color: var(--yellow); }
+  .cta .sub {
+    font-size: 19px;
+    color: #c9c6bb;
+    max-width: 600px;
+    margin: 0 auto 26px;
+  }
+  .cta .btn {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 18px 40px;
+  }
+  .cta .micro {
+    font-family: 'Archivo', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: #8d8a80;
+    margin-top: 16px;
+  }
+  .cta .bio {
+    font-size: 14.5px;
+    color: #9a978d;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 30px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid #2c2c28;
+  }
+  .cta .seriesline {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <div class="topbar">
+    <div class="brand">BAM<span>&times;</span>AI&nbsp;MONEY&nbsp;MACHINE</div>
+    <div class="slot">Where Your Hours Go</div>
+  </div>
+
+  <div class="masthead">
+    <div class="kicker">7 Bottlenecks</div>
+    <h1>The 7 Bottlenecks <span class="hl">Killing Your Hours</span></h1>
+    <p class="deck">None of these put a deal together. All of them eat your week. Here's each one, and the AI system that takes it off your plate.</p>
+  </div>
+
+  <div class="pain">
+    <div class="tag">The truth</div>
+    <div class="line">Your business grows exactly as far as your <b>two hands</b> stretch, and it stops the day you stop.</div>
+  </div>
+
+  <div class="grid">
+    <div class="grid-head">
+      <h2>Seven leaks, and the fix for each</h2>
+      <p>Find the ones bleeding your week. Each has a system that closes it.</p>
+    </div>
+
+    <div class="row">
+      <div class="no">01</div>
+      <div class="body">
+        <div class="quote">&ldquo;I tried ChatGPT and nothing changed.&rdquo;</div>
+        <div class="fixed"><span class="lbl">Fixed by</span>Building a system, not visiting a tool</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="no">02</div>
+      <div class="body">
+        <div class="quote">&ldquo;I'm typing every contract and report in by hand.&rdquo;</div>
+        <div class="fixed"><span class="lbl">Fixed by</span>AI that reads (vision)</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="no">03</div>
+      <div class="body">
+        <div class="quote">&ldquo;Every chat starts from zero and sounds generic.&rdquo;</div>
+        <div class="fixed"><span class="lbl">Fixed by</span>The Command Center (memory)</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="no">04</div>
+      <div class="body">
+        <div class="quote">&ldquo;I'm the courier, copy-pasting between five apps.&rdquo;</div>
+        <div class="fixed"><span class="lbl">Fixed by</span>The Email &amp; Comms Hub (tools)</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="no">05</div>
+      <div class="body">
+        <div class="quote">&ldquo;It's all connected, but I still do the work.&rdquo;</div>
+        <div class="fixed"><span class="lbl">Fixed by</span>The Content Engine</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="no">06</div>
+      <div class="body">
+        <div class="quote">&ldquo;I have to ask it every single time.&rdquo;</div>
+        <div class="fixed"><span class="lbl">Fixed by</span>The Follow-Up Machine (it repeats without you)</div>
+      </div>
+    </div>
+
+    <div class="row climax">
+      <div class="no">07</div>
+      <div class="body">
+        <div class="quote">&ldquo;What is all of this even worth together?&rdquo;</div>
+        <div class="fixed"><span class="lbl">Fixed by</span>Always-on ops, and 10 to 20 hours back a week</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="num">7</div>
+      <div class="lab">Leaks closed, one<br>system at a time</div>
+    </div>
+    <div class="stat">
+      <div class="num">10&ndash;20</div>
+      <div class="lab">Hours back a week<br>once it runs itself</div>
+    </div>
+    <div class="stat">
+      <div class="num">0</div>
+      <div class="lab">Of them client work<br>(none made commission)</div>
+    </div>
+  </div>
+
+  <div class="tryit">
+    <div class="tag">Try this today &middot; 2 minutes</div>
+    <p>Circle the <span class="mark">three bottlenecks above</span> that cost you the most this week. Those three are where your AI build pays for itself first.</p>
+  </div>
+
+  <div class="cta">
+    <h2>Which system would win you <span class="hl">the most time first?</span></h2>
+    <p class="sub">Take the 60-second AI Money Machine Readiness Check. Five questions, and it shows you which of the five systems to build first.</p>
+    <div class="btn">Take the Readiness Check &rarr;</div>
+    <div class="micro">268whexy4zj.typeform.com/to/AHYprfYz &middot; 60 seconds &middot; 5 questions</div>
+    <div class="seriesline">Part of the AI Money Machine funnel &middot; 7 parts, 5 systems</div>
+    <p class="bio">Leo Chen builds AI operating systems for real estate teams and runs them across his own brokerage and agency. He's leading the AI Money Machine cohort with BAM.</p>
+  </div>
+
+</div>
+</body>
+</html>

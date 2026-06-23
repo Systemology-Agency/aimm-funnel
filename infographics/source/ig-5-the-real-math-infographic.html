@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Real Math: 10-20 Hours a Week Back — IG-5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Archivo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD900;
+    --black: #111111;
+    --ink: #1c1c1c;
+    --paper: #FAF8F2;
+    --grey: #6b6b66;
+    --rule: #e3e0d6;
+    --card: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+    width: 1000px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  .poster { background: var(--paper); }
+
+  /* ===== TOP BAR ===== */
+  .topbar {
+    background: var(--black);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    border-bottom: 5px solid var(--yellow);
+  }
+  .topbar .brand {
+    font-family: 'Anton', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.04em;
+  }
+  .topbar .brand span { color: var(--yellow); }
+  .topbar .slot {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--yellow);
+  }
+
+  /* ===== MASTHEAD ===== */
+  .masthead {
+    background: var(--black);
+    color: #fff;
+    padding: 54px 48px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::after {
+    content: "";
+    position: absolute;
+    right: -140px; top: -140px;
+    width: 420px; height: 420px;
+    background: var(--yellow);
+    transform: rotate(18deg);
+    opacity: 0.07;
+  }
+  .kicker {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 8px 16px 7px;
+    margin-bottom: 26px;
+  }
+  .masthead h1 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 78px;
+    line-height: 0.98;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+  .masthead h1 .hl { color: var(--yellow); }
+  .masthead .deck {
+    font-style: italic;
+    font-size: 25px;
+    line-height: 1.45;
+    color: #d8d5cb;
+    max-width: 720px;
+    margin-top: 24px;
+  }
+
+  /* ===== PAIN STRIP ===== */
+  .pain {
+    background: var(--yellow);
+    color: var(--black);
+    padding: 30px 48px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .pain .tag {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: var(--black);
+    color: var(--yellow);
+    padding: 8px 14px;
+    flex-shrink: 0;
+  }
+  .pain .line {
+    font-family: 'Newsreader', serif;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+  .pain .line b { font-weight: 700; }
+
+  /* ===== BEFORE / AFTER SPLIT ===== */
+  .split {
+    padding: 60px 48px 54px;
+    background: var(--paper);
+  }
+  .split-head {
+    text-align: center;
+    margin-bottom: 44px;
+  }
+  .split-head h2 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    text-transform: uppercase;
+    line-height: 1.05;
+  }
+  .split-head p {
+    font-size: 19px;
+    color: var(--grey);
+    margin-top: 12px;
+  }
+
+  .panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 3px solid var(--black);
+    box-shadow: 9px 9px 0 var(--black);
+  }
+  .panel { padding: 32px 30px 34px; }
+  .panel.today { background: var(--black); color: #fff; border-right: 3px solid var(--yellow); }
+  .panel.system { background: var(--card); color: var(--ink); }
+
+  .panel .phead {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 8px 14px;
+    margin-bottom: 6px;
+  }
+  .panel.today .phead { background: var(--yellow); color: var(--black); }
+  .panel.system .phead { background: var(--black); color: var(--yellow); }
+  .panel .ptitle {
+    font-family: 'Anton', sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    line-height: 1.02;
+    margin: 14px 0 22px;
+  }
+  .panel.today .ptitle { color: #fff; }
+  .panel.today .ptitle span { color: var(--yellow); }
+  .panel.system .ptitle span { color: #b89c00; }
+
+  .row {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 14px 0;
+    border-top: 1px solid;
+  }
+  .panel.today .row { border-color: #2c2c28; }
+  .panel.system .row { border-color: var(--rule); }
+  .row:last-child { padding-bottom: 0; }
+
+  .row .mk {
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 26px;
+    text-align: center;
+    margin-top: 2px;
+  }
+  .panel.today .row .mk { color: var(--yellow); }
+  .panel.system .row .mk { color: #1c1c1c; }
+
+  .row .txt {
+    font-family: 'Newsreader', serif;
+    font-size: 17.5px;
+    line-height: 1.34;
+  }
+  .panel.today .row .txt { color: #e7e4da; }
+  .panel.today .row .txt b { color: #fff; font-weight: 700; }
+  .panel.system .row .txt { color: #33322e; }
+  .panel.system .row .txt b { color: var(--ink); font-weight: 700; }
+
+  /* ===== BIG NUMBER BLOCK ===== */
+  .bignum {
+    background: var(--black);
+    color: #fff;
+    text-align: center;
+    padding: 56px 40px 54px;
+    position: relative;
+    overflow: hidden;
+  }
+  .bignum::after {
+    content: "";
+    position: absolute;
+    left: -120px; bottom: -160px;
+    width: 400px; height: 400px;
+    background: var(--yellow);
+    transform: rotate(18deg);
+    opacity: 0.06;
+  }
+  .bignum .lead {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 18px;
+  }
+  .bignum .figure {
+    font-family: 'Anton', sans-serif;
+    font-size: 168px;
+    line-height: 0.86;
+    color: var(--yellow);
+    letter-spacing: 0.005em;
+  }
+  .bignum .unit {
+    font-family: 'Anton', sans-serif;
+    font-size: 44px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 14px;
+    color: #fff;
+  }
+  .bignum .subline {
+    font-style: italic;
+    font-size: 21px;
+    color: #c9c6bb;
+    max-width: 560px;
+    margin: 22px auto 0;
+    line-height: 1.45;
+  }
+
+  /* ===== STAT BAND ===== */
+  .stats {
+    background: var(--black);
+    color: #fff;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid #2c2c28;
+  }
+  .stat {
+    padding: 40px 24px;
+    text-align: center;
+    border-right: 1px solid #2c2c28;
+  }
+  .stat:last-child { border-right: none; }
+  .stat .num {
+    font-family: 'Anton', sans-serif;
+    font-size: 60px;
+    line-height: 1;
+    color: var(--yellow);
+  }
+  .stat .lab {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.35;
+    margin-top: 12px;
+    color: #d8d5cb;
+  }
+
+  /* ===== TRY THIS ===== */
+  .tryit {
+    background: var(--paper);
+    padding: 44px 48px;
+    position: relative;
+  }
+  .tryit .tag {
+    display: inline-block;
+    background: var(--black);
+    color: var(--yellow);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 8px 15px;
+    margin-bottom: 18px;
+  }
+  .tryit p {
+    font-size: 22px;
+    line-height: 1.5;
+    max-width: 780px;
+  }
+  .tryit p .mark {
+    background: linear-gradient(transparent 58%, var(--yellow) 58%, var(--yellow) 94%, transparent 94%);
+    padding: 0 3px;
+    font-weight: 600;
+  }
+
+  /* ===== CTA FOOTER ===== */
+  .cta {
+    background: var(--black);
+    color: #fff;
+    padding: 52px 48px 44px;
+    text-align: center;
+  }
+  .cta h2 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+  .cta h2 .hl { color: var(--yellow); }
+  .cta .sub {
+    font-size: 19px;
+    color: #c9c6bb;
+    max-width: 600px;
+    margin: 0 auto 26px;
+  }
+  .cta .btn {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 18px 40px;
+  }
+  .cta .micro {
+    font-family: 'Archivo', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: #8d8a80;
+    margin-top: 16px;
+  }
+  .cta .bio {
+    font-size: 14.5px;
+    color: #9a978d;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 30px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid #2c2c28;
+  }
+  .cta .seriesline {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <div class="topbar">
+    <div class="brand">BAM<span>&times;</span>AI&nbsp;MONEY&nbsp;MACHINE</div>
+    <div class="slot">The Real Math</div>
+  </div>
+
+  <div class="masthead">
+    <div class="kicker">The 10-20 Hour Question</div>
+    <h1>Where Did <span class="hl">Your Week</span> Go?</h1>
+    <p class="deck">Add up the hours that never touch a client. The typing, the chasing, the posting you keep promising yourself. Then watch a system hand them back.</p>
+  </div>
+
+  <div class="pain">
+    <div class="tag">The leak</div>
+    <div class="line"><b>40 to 60 percent</b> of an agent's week goes to work that does not produce a single commission.</div>
+  </div>
+
+  <div class="split">
+    <div class="split-head">
+      <h2>Same work. Two very different weeks.</h2>
+      <p>On the left is where the hours go now. On the right is who runs them once the system is built.</p>
+    </div>
+
+    <div class="panels">
+
+      <div class="panel today">
+        <div class="phead">Today &middot; The leak</div>
+        <div class="ptitle">Hours that <span>never close a deal</span></div>
+
+        <div class="row">
+          <div class="mk">&times;</div>
+          <div class="txt"><b>Follow-up texts</b>, typed from scratch, one lead at a time.</div>
+        </div>
+        <div class="row">
+          <div class="mk">&times;</div>
+          <div class="txt"><b>Inbox triage and admin</b> you wade through before real work starts.</div>
+        </div>
+        <div class="row">
+          <div class="mk">&times;</div>
+          <div class="txt"><b>Listing descriptions and buyer recaps</b>, written by hand every time.</div>
+        </div>
+        <div class="row">
+          <div class="mk">&times;</div>
+          <div class="txt"><b>Content you keep meaning to post</b> and never quite get to.</div>
+        </div>
+        <div class="row">
+          <div class="mk">&times;</div>
+          <div class="txt"><b>Reviving cold leads by hand</b>, until you give up and let them go.</div>
+        </div>
+      </div>
+
+      <div class="panel system">
+        <div class="phead">On the system &middot; Returned</div>
+        <div class="ptitle">The same work, <span>now run for you</span></div>
+
+        <div class="row">
+          <div class="mk">&rarr;</div>
+          <div class="txt">The <b>Follow-Up Machine</b> sends them in under a minute.</div>
+        </div>
+        <div class="row">
+          <div class="mk">&rarr;</div>
+          <div class="txt">The <b>Email &amp; Comms Hub</b> drafts them before coffee.</div>
+        </div>
+        <div class="row">
+          <div class="mk">&rarr;</div>
+          <div class="txt">Your <b>First Skill</b> builds them at the push of a button.</div>
+        </div>
+        <div class="row">
+          <div class="mk">&rarr;</div>
+          <div class="txt">The <b>Content Engine</b> produces a week at a time.</div>
+        </div>
+        <div class="row">
+          <div class="mk">&rarr;</div>
+          <div class="txt"><b>Reactivated in an afternoon</b>, not abandoned.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="bignum">
+    <div class="lead">The work the system gives back</div>
+    <div class="figure">10&ndash;20</div>
+    <div class="unit">Hours / Week Back</div>
+    <div class="subline">The work of a full-time assistant you never had to hire.</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="num">40-60%</div>
+      <div class="lab">of your week is<br>non-commission work</div>
+    </div>
+    <div class="stat">
+      <div class="num">5</div>
+      <div class="lab">systems doing<br>it for you</div>
+    </div>
+    <div class="stat">
+      <div class="num">10-20</div>
+      <div class="lab">hours<br>returned</div>
+    </div>
+  </div>
+
+  <div class="tryit">
+    <div class="tag">Try this today &middot; 2 minutes</div>
+    <p>Total the hours you spent this week on <span class="mark">anything that was not in front of a client</span>. That number is what the machine is built to give back.</p>
+  </div>
+
+  <div class="cta">
+    <h2>Which system would win you <span class="hl">the most time first?</span></h2>
+    <p class="sub">Take the 60-second AI Money Machine Readiness Check. Five questions, and it shows you which of the five systems to build first.</p>
+    <div class="btn">Take the Readiness Check &rarr;</div>
+    <div class="micro">268whexy4zj.typeform.com/to/AHYprfYz &middot; 60 seconds &middot; 5 questions</div>
+    <div class="seriesline">Part of the AI Money Machine funnel &middot; the math that closes it</div>
+    <p class="bio">Leo Chen builds AI operating systems for real estate teams and runs them across his own brokerage and agency. He's leading the AI Money Machine cohort with BAM.</p>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AI Money Machine Funnel — Asset Index</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Archivo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{ --yellow:#FFD900; --black:#111; --ink:#1c1c1c; --paper:#FAF8F2; --grey:#6b6b66; --rule:#e3e0d6; --card:#fff; }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{ background:var(--paper); color:var(--ink); font-family:'Newsreader',Georgia,serif; -webkit-font-smoothing:antialiased; }
+  .wrap{ max-width:1040px; margin:0 auto; }
+
+  /* topbar */
+  .topbar{ background:var(--black); color:#fff; display:flex; align-items:center; justify-content:space-between; padding:16px 32px; border-bottom:5px solid var(--yellow); }
+  .topbar .brand{ font-family:'Anton',sans-serif; font-size:24px; letter-spacing:.04em; }
+  .topbar .brand span{ color:var(--yellow); }
+  .topbar .slot{ font-family:'Archivo',sans-serif; font-weight:800; font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--yellow); }
+
+  /* masthead */
+  .mast{ background:var(--black); color:#fff; padding:48px 32px 54px; position:relative; overflow:hidden; }
+  .mast::after{ content:""; position:absolute; right:-140px; top:-140px; width:400px; height:400px; background:var(--yellow); transform:rotate(18deg); opacity:.07; }
+  .mast .kick{ display:inline-block; background:var(--yellow); color:var(--black); font-family:'Archivo',sans-serif; font-weight:900; font-size:12px; letter-spacing:.22em; text-transform:uppercase; padding:8px 15px 7px; margin-bottom:22px; }
+  .mast h1{ font-family:'Anton',sans-serif; font-weight:400; font-size:60px; line-height:1; text-transform:uppercase; }
+  .mast h1 .hl{ color:var(--yellow); }
+  .mast .deck{ font-style:italic; font-size:21px; color:#d8d5cb; max-width:660px; margin-top:18px; line-height:1.45; }
+  .mast .updated{ font-family:'Archivo',sans-serif; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#8d8a80; margin-top:22px; }
+
+  /* survey banner */
+  .survey{ background:var(--yellow); color:var(--black); padding:22px 32px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+  .survey .t{ font-family:'Archivo',sans-serif; font-weight:800; font-size:15px; letter-spacing:.04em; }
+  .survey .t b{ font-family:'Anton',sans-serif; font-weight:400; font-size:19px; }
+  .survey a{ background:var(--black); color:var(--yellow); font-family:'Archivo',sans-serif; font-weight:900; font-size:13px; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; padding:13px 24px; white-space:nowrap; }
+
+  /* sections */
+  section{ padding:40px 32px 8px; }
+  .h2{ font-family:'Anton',sans-serif; font-weight:400; font-size:30px; text-transform:uppercase; padding-top:20px; border-top:4px solid var(--black); position:relative; margin-bottom:6px; }
+  .h2::before{ content:""; position:absolute; top:-4px; left:0; width:60px; height:4px; background:var(--yellow); }
+  .h2 small{ display:block; font-family:'Archivo',sans-serif; font-weight:600; font-size:13px; letter-spacing:.04em; color:var(--grey); text-transform:none; margin-top:8px; }
+
+  /* funnel rows */
+  .part{ display:grid; grid-template-columns:64px 1fr; gap:0 18px; padding:20px 0; border-bottom:1px solid var(--rule); }
+  .part .n{ font-family:'Anton',sans-serif; font-size:40px; line-height:1; color:var(--black); }
+  .part.live .n{ color:var(--yellow); -webkit-text-stroke:1.5px var(--black); }
+  .part h3{ font-family:'Archivo',sans-serif; font-weight:800; font-size:18px; letter-spacing:.02em; text-transform:uppercase; }
+  .part .cap{ font-size:16px; color:#33322e; margin:4px 0 12px; }
+  .links{ display:flex; flex-wrap:wrap; gap:8px; }
+  a.pill{ display:inline-block; font-family:'Archivo',sans-serif; font-weight:700; font-size:12px; letter-spacing:.04em; text-decoration:none; padding:8px 14px; border:2px solid var(--black); color:var(--black); background:var(--card); transition:all .12s ease; }
+  a.pill:hover{ background:var(--black); color:#fff; }
+  a.pill.y{ background:var(--yellow); }
+  a.pill.y:hover{ background:var(--black); color:var(--yellow); }
+  a.pill.src{ background:transparent; border-style:dashed; color:var(--grey); }
+  a.pill.src:hover{ background:var(--grey); color:#fff; border-color:var(--grey); }
+  .pending{ font-family:'Archivo',sans-serif; font-weight:700; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#b0853a; background:#fff6df; border:1px dashed #d8b25a; padding:7px 12px; display:inline-block; }
+
+  /* asset grid */
+  .grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; padding:10px 0 0; }
+  .cell{ background:var(--card); border:2px solid var(--black); box-shadow:5px 5px 0 var(--black); padding:16px 18px; }
+  .cell .lab{ font-family:'Archivo',sans-serif; font-weight:800; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--yellow); background:var(--black); display:inline-block; padding:4px 9px; margin-bottom:10px; }
+  .cell h4{ font-family:'Archivo',sans-serif; font-weight:800; font-size:15px; margin-bottom:10px; line-height:1.25; }
+
+  footer{ background:var(--black); color:#9a978d; padding:34px 32px 40px; margin-top:30px; font-size:13px; line-height:1.6; }
+  footer b{ color:#fff; }
+  .note{ font-family:'Archivo',sans-serif; font-size:11.5px; color:var(--grey); padding:14px 32px 0; line-height:1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand">BAM<span>&times;</span>AI&nbsp;MONEY&nbsp;MACHINE</div>
+    <div class="slot">Funnel Asset Index</div>
+  </div>
+
+  <div class="mast">
+    <div class="kick">One-Page Clickthrough</div>
+    <h1>The AIMM Funnel, <span class="hl">Everything in One Place</span></h1>
+    <p class="deck">Every page and asset in the 7-part AI Money Machine x BAM content funnel. Articles open as web pages, infographics open as images, planning docs open in Obsidian.</p>
+    <div class="updated">Updated 2026-06-11 &middot; 3 articles &middot; 6 infographics &middot; 2 demo videos pending</div>
+  </div>
+
+  <div class="survey">
+    <div class="t"><b>The funnel destination:</b> &nbsp;AI Money Machine Readiness Check &middot; 60 seconds &middot; 5 questions</div>
+    <a href="https://268whexy4zj.typeform.com/to/AHYprfYz" target="_blank">Open the Survey &rarr;</a>
+  </div>
+
+  <section>
+    <div class="h2">The 7-Part Funnel<small>Capability staircase. Each part picks up the pain the last one created. Click any asset to open it.</small></div>
+
+    <div class="part live">
+      <div class="n">1</div>
+      <div>
+        <h3>The Chat Window Trap</h3>
+        <div class="cap">Using vs. building AI. The vending machine vs. the assistant.</div>
+        <div class="links">
+          <a class="pill y" href="articles/2026-06-11%20%E2%80%94%20Article%201%20%E2%80%94%20Why%20Most%20Agents%27%20AI%20Stalls%20at%20the%20Chat%20Window%20%E2%80%94%20Web%20%E2%80%94%20LATEST.html" target="_blank">Read Article 1 (web)</a>
+          <a class="pill" href="infographics/2026-06-11%20%E2%80%94%20The%207%20Bottlenecks%20%E2%80%94%20IG-2%20%E2%80%94%20Infographic%20%E2%80%94%20LATEST.png" target="_blank">IG-2: 7 Bottlenecks</a>
+          <a class="pill" href="infographics/2026-06-11%20%E2%80%94%20Using%20AI%20vs%20Building%20an%20AI%20System%20%E2%80%94%20IG-3%20%E2%80%94%20Infographic%20%E2%80%94%20LATEST.png" target="_blank">IG-3: Using vs. Building</a>
+          <a class="pill src" href="obsidian://open?vault=Business%20CIA&file=projects/aimm-6-week-program/content-funnel/articles/2026-06-11%20%E2%80%94%20Article%201%20%E2%80%94%20Why%20Most%20Agents%27%20AI%20Stalls%20at%20the%20Chat%20Window%20%E2%80%94%20LATEST.md">md source</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="part">
+      <div class="n">2</div>
+      <div>
+        <h3>AI Can See</h3>
+        <div class="cap">Reads photos, contracts, inspection reports, spreadsheets instantly.</div>
+        <div class="links"><span class="pending">Demo video &middot; not built yet</span></div>
+      </div>
+    </div>
+
+    <div class="part live">
+      <div class="n">3</div>
+      <div>
+        <h3>AI Can Remember</h3>
+        <div class="cap">Set up once: market, voice, listings. Never re-explain yourself. (System 1: Command Center)</div>
+        <div class="links">
+          <a class="pill y" href="articles/2026-06-11%20%E2%80%94%20Article%202%20%E2%80%94%20Your%20AI%20Can%20Remember%20You%20Now%20%E2%80%94%20Web%20%E2%80%94%20LATEST.html" target="_blank">Read Article 2 (web)</a>
+          <a class="pill" href="infographics/2026-06-11%20%E2%80%94%20The%205-System%20AI%20House%20%E2%80%94%20IG-1%20%E2%80%94%20Infographic%20%E2%80%94%20LATEST.png" target="_blank">IG-1: 5-System House</a>
+          <a class="pill" href="infographics/2026-06-11%20%E2%80%94%20What%20Turns%20On%20Each%20Week%20%E2%80%94%20IG-4%20%E2%80%94%20Infographic%20%E2%80%94%20LATEST.png" target="_blank">IG-4: Weekly Arc</a>
+          <a class="pill src" href="obsidian://open?vault=Business%20CIA&file=projects/aimm-6-week-program/content-funnel/articles/2026-06-11%20%E2%80%94%20Article%202%20%E2%80%94%20Your%20AI%20Can%20Remember%20You%20Now%20%E2%80%94%20LATEST.md">md source</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="part live">
+      <div class="n">4</div>
+      <div>
+        <h3>AI Can Reach Your Tools</h3>
+        <div class="cap">Inbox, calendar, CRM in the loop. Drafts before coffee. (System 3: Email &amp; Comms Hub)</div>
+        <div class="links">
+          <a class="pill y" href="infographics/2026-06-11%20%E2%80%94%20AI%20Can%20Reach%20Your%20Tools%20%E2%80%94%20Part%204%20%E2%80%94%20Infographic%20%E2%80%94%20LATEST.png" target="_blank">Part 4 Infographic</a>
+          <a class="pill src" href="infographics/source/part-4-reach-your-tools-infographic.html" target="_blank">html source</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="part">
+      <div class="n">5</div>
+      <div>
+        <h3>AI Can Do The Work</h3>
+        <div class="cap">The jaw-drop. A week of content produced live, in your voice. (System 4: Content Engine)</div>
+        <div class="links"><span class="pending">Hero demo video &middot; not built yet</span></div>
+      </div>
+    </div>
+
+    <div class="part live">
+      <div class="n">6</div>
+      <div>
+        <h3>AI Can Repeat Without You</h3>
+        <div class="cap">Build once, runs every time. No lead goes cold. (System 5: Follow-Up Machine, the room that makes the money)</div>
+        <div class="links">
+          <a class="pill y" href="articles/2026-06-11%20%E2%80%94%20Article%203%20%E2%80%94%20Your%20AI%20Can%20Run%20the%20Follow-Up%20Without%20You%20%E2%80%94%20Web%20%E2%80%94%20LATEST.html" target="_blank">Read Article 3 (web)</a>
+          <a class="pill src" href="obsidian://open?vault=Business%20CIA&file=projects/aimm-6-week-program/content-funnel/articles/2026-06-11%20%E2%80%94%20Article%203%20%E2%80%94%20Your%20AI%20Can%20Run%20the%20Follow-Up%20Without%20You%20%E2%80%94%20LATEST.md">md source</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="part">
+      <div class="n">7</div>
+      <div>
+        <h3>AI Never Sleeps</h3>
+        <div class="cap">Busywork overnight, reports at sunrise. The 10-20 hrs/week math totaled. (System 5: Ops Autopilot + CTA)</div>
+        <div class="links">
+          <a class="pill" href="infographics/2026-06-11%20%E2%80%94%20The%20Real%20Math%2C%2010-20%20Hours%20Back%20%E2%80%94%20IG-5%20%E2%80%94%20Infographic%20%E2%80%94%20LATEST.png" target="_blank">IG-5: The Real Math</a>
+          <span class="pending">Post C + VSL &middot; not built yet</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <div class="h2">All Infographics<small>BAM yellow/black poster set. Click to view the PNG; dashed link opens the editable HTML source.</small></div>
+    <div class="grid">
+      <div class="cell">
+        <span class="lab">Part 4</span>
+        <h4>AI Can Reach Your Tools</h4>
+        <div class="links"><a class="pill y" href="infographics/2026-06-11%20%E2%80%94%20AI%20Can%20Reach%20Your%20Tools%20%E2%80%94%20Part%204%20%E2%80%94%20Infographic%20%E2%80%94%20LATEST.png" target="_blank">View PNG</a><a class="pill src" href="infographics/source/part-4-reach-your-tools-infographic.html" target="_blank">source</a></div>
+      </div>
+      <div class="cell">
+        <span class="lab">IG-1</span>
+        <h4>The 5-System AI House</h4>
+        <div class="links"><a class="pill y" href="infographics/2026-06-11%20%E2%80%94%20The%205-System%20AI%20House%20%E2%80%94%20IG-1%20%E2%80%94%20Infographic%20%E2%80%94%20LATEST.png" target="_blank">View PNG</a><a class="pill src" href="infographics/source/ig-1-five-system-house-infographic.html" target="_blank">source</a></div>
+      </div>
+      <div class="cell">
+        <span class="lab">IG-2</span>
+        <h4>The 7 Bottlenecks Killing Your Hours</h4>
+        <div class="links"><a class="pill y" href="infographics/2026-06-11%20%E2%80%94%20The%207%20Bottlenecks%20%E2%80%94%20IG-2%20%E2%80%94%20Infographic%20%E2%80%94%20LATEST.png" target="_blank">View PNG</a><a class="pill src" href="infographics/source/ig-2-seven-bottlenecks-infographic.html" target="_blank">source</a></div>
+      </div>
+      <div class="cell">
+        <span class="lab">IG-3</span>
+        <h4>Using AI vs. Building an AI System</h4>
+        <div class="links"><a class="pill y" href="infographics/2026-06-11%20%E2%80%94%20Using%20AI%20vs%20Building%20an%20AI%20System%20%E2%80%94%20IG-3%20%E2%80%94%20Infographic%20%E2%80%94%20LATEST.png" target="_blank">View PNG</a><a class="pill src" href="infographics/source/ig-3-using-vs-building-infographic.html" target="_blank">source</a></div>
+      </div>
+      <div class="cell">
+        <span class="lab">IG-4</span>
+        <h4>What Turns On Each Week</h4>
+        <div class="links"><a class="pill y" href="infographics/2026-06-11%20%E2%80%94%20What%20Turns%20On%20Each%20Week%20%E2%80%94%20IG-4%20%E2%80%94%20Infographic%20%E2%80%94%20LATEST.png" target="_blank">View PNG</a><a class="pill src" href="infographics/source/ig-4-weekly-arc-infographic.html" target="_blank">source</a></div>
+      </div>
+      <div class="cell">
+        <span class="lab">IG-5</span>
+        <h4>The Real Math: 10-20 Hours a Week Back</h4>
+        <div class="links"><a class="pill y" href="infographics/2026-06-11%20%E2%80%94%20The%20Real%20Math%2C%2010-20%20Hours%20Back%20%E2%80%94%20IG-5%20%E2%80%94%20Infographic%20%E2%80%94%20LATEST.png" target="_blank">View PNG</a><a class="pill src" href="infographics/source/ig-5-the-real-math-infographic.html" target="_blank">source</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="h2">Planning &amp; Strategy<small>The canonical spine and the original production plan. Open in Obsidian.</small></div>
+    <div class="grid">
+      <div class="cell">
+        <span class="lab">Canonical</span>
+        <h4>7-Part Content Funnel — Design</h4>
+        <div class="links"><a class="pill" href="obsidian://open?vault=Business%20CIA&file=projects/aimm-6-week-program/content-funnel/2026-06-11%20%E2%80%94%207-Part%20Content%20Funnel%20%E2%80%94%20Design%20%E2%80%94%20LATEST.md">Open in Obsidian</a></div>
+      </div>
+      <div class="cell">
+        <span class="lab">Source plan</span>
+        <h4>BAM Content Funnel — Production Plan</h4>
+        <div class="links"><a class="pill" href="obsidian://open?vault=Business%20CIA&file=projects/aimm-6-week-program/2026-06-04%20%E2%80%94%20BAM%20Content%20Funnel%20%E2%80%94%20Production%20Plan.md">Open in Obsidian</a></div>
+      </div>
+    </div>
+  </section>
+
+  <p class="note">Built / not built: 3 of 3 planned articles are drafted (status draft-for-review, not yet locked). 6 infographics live. Still pending per the funnel design: the Part 2 "AI Can See" demo video, the Part 5 hero "AI Can Do The Work" demo video, and the Part 7 VSL page. Upstream publishing gate: Byron July 9 confirmation + Byron one-line intro for Part 1.</p>
+
+  <footer>
+    <b>AI Money Machine x BAM &mdash; Content Funnel.</b><br>
+    Leo Chen builds AI operating systems for real estate teams and runs them across his own brokerage and agency. He's leading the AI Money Machine cohort with BAM.<br><br>
+    Index generated 2026-06-11. Links are local file paths (articles + infographics open in your browser) and Obsidian vault links (markdown source). If a browser blocks a local file link, the asset is in this project's content-funnel folder.
+  </footer>
+
+</div>
+</body>
+</html>

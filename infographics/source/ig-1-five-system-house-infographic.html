@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 5-System AI House — AI Money Machine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Archivo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD900;
+    --black: #111111;
+    --ink: #1c1c1c;
+    --paper: #FAF8F2;
+    --grey: #6b6b66;
+    --rule: #e3e0d6;
+    --card: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+    width: 1000px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  .poster { background: var(--paper); }
+
+  /* ===== TOP BAR ===== */
+  .topbar {
+    background: var(--black);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    border-bottom: 5px solid var(--yellow);
+  }
+  .topbar .brand {
+    font-family: 'Anton', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.04em;
+  }
+  .topbar .brand span { color: var(--yellow); }
+  .topbar .slot {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--yellow);
+  }
+
+  /* ===== MASTHEAD ===== */
+  .masthead {
+    background: var(--black);
+    color: #fff;
+    padding: 54px 48px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::after {
+    content: "";
+    position: absolute;
+    right: -140px; top: -140px;
+    width: 420px; height: 420px;
+    background: var(--yellow);
+    transform: rotate(18deg);
+    opacity: 0.07;
+  }
+  .kicker {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 8px 16px 7px;
+    margin-bottom: 26px;
+  }
+  .masthead h1 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 78px;
+    line-height: 0.98;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+  .masthead h1 .hl { color: var(--yellow); }
+  .masthead .deck {
+    font-style: italic;
+    font-size: 25px;
+    line-height: 1.45;
+    color: #d8d5cb;
+    max-width: 720px;
+    margin-top: 24px;
+  }
+
+  /* ===== PAIN STRIP ===== */
+  .pain {
+    background: var(--yellow);
+    color: var(--black);
+    padding: 30px 48px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .pain .tag {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: var(--black);
+    color: var(--yellow);
+    padding: 8px 14px;
+    flex-shrink: 0;
+  }
+  .pain .line {
+    font-family: 'Newsreader', serif;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+  .pain .line b { font-weight: 700; }
+
+  /* ===== HOUSE DIAGRAM ===== */
+  .house {
+    padding: 60px 48px 56px;
+    background: var(--paper);
+  }
+  .house-head {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .house-head h2 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    text-transform: uppercase;
+    line-height: 1.05;
+  }
+  .house-head p {
+    font-size: 19px;
+    color: var(--grey);
+    margin-top: 12px;
+  }
+
+  /* The house is a single column: roof, then a 5-room stack body, on a foundation slab */
+  .building {
+    width: 640px;
+    margin: 0 auto;
+  }
+
+  /* ROOF — a CSS triangle that spans the body width */
+  .roof {
+    width: 0;
+    height: 0;
+    margin: 0 auto;
+    border-left: 320px solid transparent;
+    border-right: 320px solid transparent;
+    border-bottom: 150px solid var(--black);
+    position: relative;
+  }
+  .roof-label {
+    position: absolute;
+    top: 88px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 380px;
+    text-align: center;
+    color: #fff;
+  }
+  .roof-label .eyebrow {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 4px;
+  }
+  .roof-label .rname {
+    font-family: 'Anton', sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  /* BODY — the stack of 5 rooms, walled on both sides */
+  .body-house {
+    border: 5px solid var(--black);
+    border-top: none;
+    background: var(--card);
+  }
+  .room {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 26px;
+    border-bottom: 3px solid var(--black);
+    position: relative;
+  }
+  .room:last-child { border-bottom: none; }
+  .room .rnum {
+    font-family: 'Anton', sans-serif;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--black);
+    background: var(--yellow);
+    border: 3px solid var(--black);
+    width: 66px; height: 66px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .room .rbody { flex: 1; }
+  .room .rtitle {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 19px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    color: var(--black);
+  }
+  .room .rdesc {
+    font-size: 17px;
+    line-height: 1.38;
+    color: #33322e;
+  }
+  /* The money room — slight yellow wash to flag the payoff */
+  .room.money { background: #fffce8; }
+  .room.money .rtitle::after {
+    content: "Makes the money";
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    background: var(--black);
+    color: var(--yellow);
+    padding: 4px 8px;
+    margin-left: 12px;
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  /* FOUNDATION slab under the house */
+  .foundation {
+    width: 700px;
+    margin: 0 auto;
+    background: var(--black);
+    color: var(--yellow);
+    text-align: center;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 12px 0;
+  }
+
+  /* ===== STAT BAND ===== */
+  .stats {
+    background: var(--black);
+    color: #fff;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .stat {
+    padding: 40px 24px;
+    text-align: center;
+    border-right: 1px solid #2c2c28;
+  }
+  .stat:last-child { border-right: none; }
+  .stat .num {
+    font-family: 'Anton', sans-serif;
+    font-size: 60px;
+    line-height: 1;
+    color: var(--yellow);
+  }
+  .stat .num.words {
+    font-size: 30px;
+    line-height: 1.05;
+  }
+  .stat .lab {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.35;
+    margin-top: 12px;
+    color: #d8d5cb;
+  }
+
+  /* ===== TRY THIS ===== */
+  .tryit {
+    background: var(--paper);
+    padding: 44px 48px;
+    position: relative;
+  }
+  .tryit .tag {
+    display: inline-block;
+    background: var(--black);
+    color: var(--yellow);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 8px 15px;
+    margin-bottom: 18px;
+  }
+  .tryit p {
+    font-size: 22px;
+    line-height: 1.5;
+    max-width: 780px;
+  }
+  .tryit p .mark {
+    background: linear-gradient(transparent 58%, var(--yellow) 58%, var(--yellow) 94%, transparent 94%);
+    padding: 0 3px;
+    font-weight: 600;
+  }
+
+  /* ===== CTA FOOTER ===== */
+  .cta {
+    background: var(--black);
+    color: #fff;
+    padding: 52px 48px 44px;
+    text-align: center;
+  }
+  .cta h2 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+  .cta h2 .hl { color: var(--yellow); }
+  .cta .sub {
+    font-size: 19px;
+    color: #c9c6bb;
+    max-width: 600px;
+    margin: 0 auto 26px;
+  }
+  .cta .btn {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 18px 40px;
+  }
+  .cta .micro {
+    font-family: 'Archivo', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: #8d8a80;
+    margin-top: 16px;
+  }
+  .cta .bio {
+    font-size: 14.5px;
+    color: #9a978d;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 30px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid #2c2c28;
+  }
+  .cta .seriesline {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <div class="topbar">
+    <div class="brand">BAM<span>&times;</span>AI&nbsp;MONEY&nbsp;MACHINE</div>
+    <div class="slot">The AI Operating System</div>
+  </div>
+
+  <div class="masthead">
+    <div class="kicker">The 5-System AI House</div>
+    <h1>Stop Renting Apps.<br><span class="hl">Build the House.</span></h1>
+    <p class="deck">Scattered apps are rooms across town that don't talk to each other, and you pay rent on all of them. The system is one house you own. It takes six weeks to build. Then it runs whether you're in it or not.</p>
+  </div>
+
+  <div class="pain">
+    <div class="tag">The problem</div>
+    <div class="line">You've got a <b>dozen apps and a dozen logins</b>, and you're still the only thing holding them together.</div>
+  </div>
+
+  <div class="house">
+    <div class="house-head">
+      <h2>One house. Five rooms. You own it.</h2>
+      <p>Each room is one system. Built once, on a brain that already knows you.</p>
+    </div>
+
+    <div class="building">
+
+      <div class="roof">
+        <div class="roof-label">
+          <div class="eyebrow">The house you own</div>
+          <div class="rname">Your AI<br>Money Machine</div>
+        </div>
+      </div>
+
+      <div class="body-house">
+
+        <div class="room">
+          <div class="rnum">01</div>
+          <div class="rbody">
+            <div class="rtitle">Command Center</div>
+            <div class="rdesc">The foundation. Your AI learns your market, your voice, and your business once, so everything else stands on a brain that already knows you.</div>
+          </div>
+        </div>
+
+        <div class="room">
+          <div class="rnum">02</div>
+          <div class="rbody">
+            <div class="rtitle">Your First Skill</div>
+            <div class="rdesc">The one thing you rewrite every week, your listing description or buyer recap, becomes a button you push. Build once, run forever.</div>
+          </div>
+        </div>
+
+        <div class="room">
+          <div class="rnum">03</div>
+          <div class="rbody">
+            <div class="rtitle">Email &amp; Operations</div>
+            <div class="rdesc">Inbox sorted, replies drafted, the daily admin off your plate while you sleep.</div>
+          </div>
+        </div>
+
+        <div class="room">
+          <div class="rnum">04</div>
+          <div class="rbody">
+            <div class="rtitle">Content Engine</div>
+            <div class="rdesc">A week of on-brand content from 30 minutes of input, plus a Deal of the Week email that writes itself in your voice and goes out on schedule, nurturing your database for life.</div>
+          </div>
+        </div>
+
+        <div class="room money">
+          <div class="rnum">05</div>
+          <div class="rbody">
+            <div class="rtitle">The Follow-Up Machine</div>
+            <div class="rdesc">The room that makes the money. Every contact gets a personalized, ready-to-send touch in under a minute, and cold open-house leads get reactivated in an afternoon.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="foundation">Built on one brain &middot; Six weeks &middot; Then it runs without you</div>
+
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="num">5</div>
+      <div class="lab">Rooms, one house<br>you actually own</div>
+    </div>
+    <div class="stat">
+      <div class="num">6 wks</div>
+      <div class="lab">To build the whole<br>thing, room by room</div>
+    </div>
+    <div class="stat">
+      <div class="num words">A money machine<br>+ a time machine<br>in one</div>
+      <div class="lab">It makes you money<br>and gives you hours back</div>
+    </div>
+  </div>
+
+  <div class="tryit">
+    <div class="tag">Try this today &middot; 2 minutes</div>
+    <p>Name your <span class="mark">five biggest time-wasters</span> this week. Each one is a room this house is built to handle. That list is your blueprint.</p>
+  </div>
+
+  <div class="cta">
+    <h2>Which room would win you <span class="hl">the most time first?</span></h2>
+    <p class="sub">Take the 60-second AI Money Machine Readiness Check. Five questions, and it shows you which of the five systems to build first.</p>
+    <div class="btn">Take the Readiness Check &rarr;</div>
+    <div class="micro">268whexy4zj.typeform.com/to/AHYprfYz &middot; 60 seconds &middot; 5 questions</div>
+    <div class="seriesline">Part of the AI Money Machine funnel &middot; 5 systems, 6 weeks</div>
+    <p class="bio">Leo Chen builds AI operating systems for real estate teams and runs them across his own brokerage and agency. He's leading the AI Money Machine cohort with BAM.</p>
+  </div>
+
+</div>
+</body>
+</html>

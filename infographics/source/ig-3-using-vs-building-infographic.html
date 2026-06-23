@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Same AI. Completely Different Result. — IG-3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Archivo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD900;
+    --black: #111111;
+    --ink: #1c1c1c;
+    --paper: #FAF8F2;
+    --grey: #6b6b66;
+    --rule: #e3e0d6;
+    --card: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+    width: 1000px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  .poster { background: var(--paper); }
+
+  /* ===== TOP BAR ===== */
+  .topbar {
+    background: var(--black);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    border-bottom: 5px solid var(--yellow);
+  }
+  .topbar .brand {
+    font-family: 'Anton', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.04em;
+  }
+  .topbar .brand span { color: var(--yellow); }
+  .topbar .slot {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--yellow);
+  }
+
+  /* ===== MASTHEAD ===== */
+  .masthead {
+    background: var(--black);
+    color: #fff;
+    padding: 54px 48px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::after {
+    content: "";
+    position: absolute;
+    right: -140px; top: -140px;
+    width: 420px; height: 420px;
+    background: var(--yellow);
+    transform: rotate(18deg);
+    opacity: 0.07;
+  }
+  .kicker {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 8px 16px 7px;
+    margin-bottom: 26px;
+  }
+  .masthead h1 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 78px;
+    line-height: 0.98;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+  .masthead h1 .hl { color: var(--yellow); }
+  .masthead .deck {
+    font-style: italic;
+    font-size: 25px;
+    line-height: 1.45;
+    color: #d8d5cb;
+    max-width: 720px;
+    margin-top: 24px;
+  }
+
+  /* ===== PAIN STRIP ===== */
+  .pain {
+    background: var(--yellow);
+    color: var(--black);
+    padding: 30px 48px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .pain .tag {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: var(--black);
+    color: var(--yellow);
+    padding: 8px 14px;
+    flex-shrink: 0;
+  }
+  .pain .line {
+    font-family: 'Newsreader', serif;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+  .pain .line b { font-weight: 700; }
+
+  /* ===== COMPARISON ===== */
+  .compare {
+    padding: 56px 48px 50px;
+    background: var(--paper);
+  }
+  .compare-head {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .compare-head h2 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    text-transform: uppercase;
+    line-height: 1.05;
+  }
+  .compare-head p {
+    font-size: 19px;
+    color: var(--grey);
+    margin-top: 12px;
+  }
+
+  /* the grid: two equal columns, each row spans both so they align */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+    row-gap: 16px;
+  }
+
+  /* column headers */
+  .colhead {
+    padding: 22px 24px;
+    border: 2px solid var(--black);
+  }
+  .colhead.using {
+    background: var(--card);
+  }
+  .colhead.building {
+    background: var(--black);
+    color: #fff;
+    box-shadow: 8px 8px 0 var(--yellow);
+  }
+  .colhead .badge {
+    display: inline-block;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+  }
+  .colhead.using .badge {
+    background: #ece9df;
+    color: #6b6b66;
+  }
+  .colhead.building .badge {
+    background: var(--yellow);
+    color: var(--black);
+  }
+  .colhead h3 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    text-transform: uppercase;
+    line-height: 1.02;
+    letter-spacing: 0.01em;
+  }
+  .colhead.using h3 { color: #444038; }
+  .colhead.building h3 .hl { color: var(--yellow); }
+  .colhead .sub {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+  .colhead.using .sub { color: #8a877d; }
+  .colhead.building .sub { color: var(--yellow); }
+
+  /* row cells */
+  .cell {
+    padding: 20px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-family: 'Newsreader', serif;
+  }
+  .cell .marker {
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+  .cell .marker svg { width: 15px; height: 15px; }
+  .cell .txt {
+    font-size: 19px;
+    line-height: 1.32;
+  }
+
+  /* LEFT = using AI, flat / muted */
+  .cell.using {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    color: #5d5a52;
+  }
+  .cell.using .marker {
+    background: #ece9df;
+    border: 1px solid #cfccc1;
+    color: #8a877d;
+  }
+  .cell.using .txt { font-weight: 400; }
+
+  /* RIGHT = building, bold / powerful */
+  .cell.building {
+    background: var(--black);
+    color: #fff;
+    border: 2px solid var(--black);
+    box-shadow: 6px 6px 0 var(--yellow);
+  }
+  .cell.building .marker {
+    background: var(--yellow);
+    color: var(--black);
+  }
+  .cell.building .txt { font-weight: 500; }
+  .cell.building .txt b { color: var(--yellow); font-weight: 700; }
+
+  /* ===== STAT BAND ===== */
+  .stats {
+    background: var(--black);
+    color: #fff;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .stat {
+    padding: 40px 24px;
+    text-align: center;
+    border-right: 1px solid #2c2c28;
+  }
+  .stat:last-child { border-right: none; }
+  .stat .num {
+    font-family: 'Anton', sans-serif;
+    font-size: 60px;
+    line-height: 1;
+    color: var(--yellow);
+  }
+  .stat .lab {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.35;
+    margin-top: 12px;
+    color: #d8d5cb;
+  }
+
+  /* ===== TRY THIS ===== */
+  .tryit {
+    background: var(--paper);
+    padding: 44px 48px;
+    position: relative;
+  }
+  .tryit .tag {
+    display: inline-block;
+    background: var(--black);
+    color: var(--yellow);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 8px 15px;
+    margin-bottom: 18px;
+  }
+  .tryit p {
+    font-size: 22px;
+    line-height: 1.5;
+    max-width: 780px;
+  }
+  .tryit p .mark {
+    background: linear-gradient(transparent 58%, var(--yellow) 58%, var(--yellow) 94%, transparent 94%);
+    padding: 0 3px;
+    font-weight: 600;
+  }
+
+  /* ===== CTA FOOTER ===== */
+  .cta {
+    background: var(--black);
+    color: #fff;
+    padding: 52px 48px 44px;
+    text-align: center;
+  }
+  .cta h2 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+  .cta h2 .hl { color: var(--yellow); }
+  .cta .sub {
+    font-size: 19px;
+    color: #c9c6bb;
+    max-width: 600px;
+    margin: 0 auto 26px;
+  }
+  .cta .btn {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 18px 40px;
+  }
+  .cta .micro {
+    font-family: 'Archivo', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: #8d8a80;
+    margin-top: 16px;
+  }
+  .cta .bio {
+    font-size: 14.5px;
+    color: #9a978d;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 30px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid #2c2c28;
+  }
+  .cta .seriesline {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <div class="topbar">
+    <div class="brand">BAM<span>&times;</span>AI&nbsp;MONEY&nbsp;MACHINE</div>
+    <div class="slot">The Core Distinction</div>
+  </div>
+
+  <div class="masthead">
+    <div class="kicker">Using vs. Building</div>
+    <h1>Same AI. <span class="hl">Completely Different</span> Result.</h1>
+    <p class="deck">Most agents are using AI. A few are building with it. That one word is the whole difference between a smarter search bar and an operating system for your business.</p>
+  </div>
+
+  <div class="pain">
+    <div class="tag">Why it didn't stick</div>
+    <div class="line">A chat window never saves you real time, because the work still routes through you. You <b>added a step</b>. You didn't remove one.</div>
+  </div>
+
+  <div class="compare">
+    <div class="compare-head">
+      <h2>One word changes everything</h2>
+      <p>Same model. Read each row across. The gap is the whole opportunity.</p>
+    </div>
+
+    <div class="grid">
+
+      <!-- COLUMN HEADERS -->
+      <div class="colhead using">
+        <div class="badge">Using AI</div>
+        <h3>The Chat Window</h3>
+        <div class="sub">A tool you visit</div>
+      </div>
+      <div class="colhead building">
+        <div class="badge">Building a System</div>
+        <h3>The <span class="hl">Machine</span> You Own</h3>
+        <div class="sub">An asset that runs</div>
+      </div>
+
+      <!-- ROW 1 -->
+      <div class="cell using">
+        <div class="marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="txt">You visit a tool</div>
+      </div>
+      <div class="cell building">
+        <div class="marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="txt">You own a machine that <b>knows you</b></div>
+      </div>
+
+      <!-- ROW 2 -->
+      <div class="cell using">
+        <div class="marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="txt">Ask, copy, paste, repeat</div>
+      </div>
+      <div class="cell building">
+        <div class="marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="txt">Push a button, it runs the task <b>again and again</b></div>
+      </div>
+
+      <!-- ROW 3 -->
+      <div class="cell using">
+        <div class="marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="txt">Every morning starts from zero</div>
+      </div>
+      <div class="cell building">
+        <div class="marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="txt">It remembers your <b>market, voice, and clients</b></div>
+      </div>
+
+      <!-- ROW 4 -->
+      <div class="cell using">
+        <div class="marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="txt">Sounds like every other agent</div>
+      </div>
+      <div class="cell building">
+        <div class="marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="txt">Writes like you <b>on your best day</b></div>
+      </div>
+
+      <!-- ROW 5 -->
+      <div class="cell using">
+        <div class="marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="txt">You're still the bottleneck</div>
+      </div>
+      <div class="cell building">
+        <div class="marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="txt">It runs <b>whether you're in it or not</b></div>
+      </div>
+
+      <!-- ROW 6 -->
+      <div class="cell using">
+        <div class="marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="txt">A smarter search bar</div>
+      </div>
+      <div class="cell building">
+        <div class="marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="txt">An <b>operating system</b> for your business</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="num">1 word</div>
+      <div class="lab">Changes everything<br>using &rarr; building</div>
+    </div>
+    <div class="stat">
+      <div class="num">2nd</div>
+      <div class="lab">Coffee machine: the one<br>that knows your order</div>
+    </div>
+    <div class="stat">
+      <div class="num">6 wks</div>
+      <div class="lab">To cross over from<br>using to building</div>
+    </div>
+  </div>
+
+  <div class="tryit">
+    <div class="tag">Try this today &middot; 2 minutes</div>
+    <p>Ask your AI for a <span class="mark">listing description cold</span>. Then give it your last three solds and who buys in your farm, and ask again. Same AI. Watch the gap. That gap is your whole opportunity.</p>
+  </div>
+
+  <div class="cta">
+    <h2>Which system would win you <span class="hl">the most time first?</span></h2>
+    <p class="sub">Take the 60-second AI Money Machine Readiness Check. Five questions, and it shows you which of the five systems to build first.</p>
+    <div class="btn">Take the Readiness Check &rarr;</div>
+    <div class="micro">268whexy4zj.typeform.com/to/AHYprfYz &middot; 60 seconds &middot; 5 questions</div>
+    <div class="seriesline">Part of the AI Money Machine funnel &middot; the differentiated lane</div>
+    <p class="bio">Leo Chen builds AI operating systems for real estate teams and runs them across his own brokerage and agency. He's leading the AI Money Machine cohort with BAM.</p>
+  </div>
+
+</div>
+</body>
+</html>
