@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AI Money Machine: What Is AI Costing You Right Now?</title>
+<meta name="description" content="Punch in your hours and your time is worth. See what repetitive work is costing you every year, and what an AI employee would cost instead.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Archivo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style id="calcStyle">
+  :root{ --yellow:#FFD900; --black:#111; --ink:#1c1c1c; --paper:#FAF8F2; --grey:#6b6b66; --rule:#e3e0d6; --card:#fff; --maxw:760px; }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--paper); color:var(--ink); font-family:'Newsreader',Georgia,serif; font-size:20px; line-height:1.62; -webkit-font-smoothing:antialiased; }
+
+  .topbar{ background:var(--black); color:#fff; display:flex; align-items:center; justify-content:space-between; padding:14px 28px; border-bottom:4px solid var(--yellow); }
+  .topbar .brand{ font-family:'Anton',sans-serif; font-size:22px; letter-spacing:.04em; color:#fff; text-decoration:none; }
+  .topbar .brand span{ color:var(--yellow); }
+  .topbar .slot{ font-family:'Archivo',sans-serif; font-weight:700; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--yellow); }
+
+  header.masthead{ background:var(--black); color:#fff; padding:56px 28px 62px; position:relative; overflow:hidden; }
+  header.masthead::after{ content:""; position:absolute; right:-120px; top:-120px; width:380px; height:380px; background:var(--yellow); transform:rotate(18deg); opacity:.07; }
+  .masthead-inner{ max-width:880px; margin:0 auto; position:relative; z-index:1; animation:rise .7s ease both; }
+  .kicker{ display:inline-block; background:var(--yellow); color:var(--black); font-family:'Archivo',sans-serif; font-weight:900; font-size:12px; letter-spacing:.24em; text-transform:uppercase; padding:7px 14px 6px; margin-bottom:24px; }
+  h1{ font-family:'Anton',sans-serif; font-weight:400; font-size:clamp(36px,5.6vw,60px); line-height:1.05; text-transform:uppercase; max-width:760px; }
+  h1 .hl{ color:var(--yellow); }
+  .deck{ font-style:italic; font-size:clamp(18px,2.3vw,22px); line-height:1.5; color:#d8d5cb; max-width:600px; margin-top:22px; }
+  @keyframes rise{ from{ opacity:0; transform:translateY(18px);} to{ opacity:1; transform:translateY(0);} }
+
+  main{ max-width:var(--maxw); margin:0 auto; padding:44px 28px 20px; }
+
+  .calc{ border:2px solid var(--black); background:var(--card); box-shadow:7px 7px 0 var(--black); }
+  .calc-inputs{ padding:26px 28px 12px; }
+  .field{ margin-bottom:26px; }
+  .field label{ display:block; font-family:'Archivo',sans-serif; font-weight:800; font-size:14px; letter-spacing:.02em; text-transform:uppercase; margin-bottom:4px; }
+  .field .hint{ font-family:'Archivo',sans-serif; font-weight:500; font-size:13px; color:var(--grey); margin-bottom:14px; }
+  .field .valrow{ display:flex; align-items:baseline; gap:10px; margin-bottom:10px; }
+  .field .val{ font-family:'Anton',sans-serif; font-size:38px; line-height:1; color:var(--black); }
+  .field .unit{ font-family:'Archivo',sans-serif; font-weight:700; font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--grey); }
+  input[type=range]{ -webkit-appearance:none; appearance:none; width:100%; height:8px; background:#eceadf; border:2px solid var(--black); outline:none; cursor:pointer; }
+  input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:26px; height:26px; background:var(--yellow); border:2px solid var(--black); cursor:pointer; box-shadow:2px 2px 0 var(--black); }
+  input[type=range]::-moz-range-thumb{ width:24px; height:24px; background:var(--yellow); border:2px solid var(--black); cursor:pointer; }
+
+  .results{ background:var(--black); color:#fff; padding:28px 28px 30px; }
+  .res-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .res{ }
+  .res .k{ font-family:'Archivo',sans-serif; font-weight:800; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#8d8a80; margin-bottom:6px; }
+  .res .big{ font-family:'Anton',sans-serif; font-size:clamp(40px,7vw,58px); line-height:.95; color:var(--yellow); }
+  .res .sub{ font-family:'Archivo',sans-serif; font-size:13px; color:#cdcac0; margin-top:6px; }
+
+  .compare{ margin-top:28px; border-top:1px solid #2c2a20; padding-top:22px; }
+  .compare .lab{ font-family:'Archivo',sans-serif; font-weight:800; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#8d8a80; margin-bottom:16px; }
+  .bars{ display:flex; flex-direction:column; gap:12px; }
+  .bar{ }
+  .bar .top{ display:flex; justify-content:space-between; align-items:baseline; font-family:'Archivo',sans-serif; margin-bottom:5px; }
+  .bar .name{ font-weight:700; font-size:13px; letter-spacing:.04em; text-transform:uppercase; }
+  .bar .amt{ font-weight:800; font-size:15px; }
+  .bar .track{ height:16px; background:#2c2a20; overflow:hidden; }
+  .bar .fill{ height:100%; transition:width .3s ease; }
+  .bar.chatgpt .fill{ background:#5b5a52; }
+  .bar.ai .fill{ background:var(--yellow); }
+  .bar.va .fill{ background:#c0533a; }
+  .bar.ai .amt{ color:var(--yellow); }
+
+  .punch{ background:var(--yellow); color:var(--black); padding:24px 28px; font-family:'Archivo',sans-serif; font-weight:700; font-size:18px; line-height:1.45; }
+  .punch b{ font-family:'Anton',sans-serif; font-weight:400; }
+
+  .assume{ font-family:'Archivo',sans-serif; font-size:12.5px; color:var(--grey); line-height:1.6; padding:20px 4px 0; }
+  .assume b{ color:var(--ink); }
+
+  .embed{ border:2px solid var(--black); background:var(--card); margin:32px 0 0; padding:22px 24px; display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+  .embed .txt{ flex:1; min-width:240px; }
+  .embed .t{ font-family:'Archivo',sans-serif; font-weight:800; font-size:15px; letter-spacing:.02em; text-transform:uppercase; margin-bottom:5px; }
+  .embed .d{ font-family:'Archivo',sans-serif; font-size:13.5px; color:var(--grey); line-height:1.5; }
+  .embed .d code{ font-family:monospace; font-size:12px; background:#f0eee4; padding:1px 5px; }
+  .embed-btn{ font-family:'Archivo',sans-serif; font-weight:900; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--black); background:var(--yellow); border:2px solid var(--black); box-shadow:4px 4px 0 var(--black); padding:14px 22px; cursor:pointer; white-space:nowrap; transition:transform .1s ease; }
+  .embed-btn:hover{ transform:translate(-1px,-1px); box-shadow:5px 5px 0 var(--black); }
+  .embed-btn:active{ transform:translate(2px,2px); box-shadow:2px 2px 0 var(--black); }
+  .embed-btn.done{ background:#7CFC9A; }
+
+  .cta{ background:var(--black); color:#fff; margin:40px auto 0; max-width:var(--maxw); padding:32px 30px; text-align:center; }
+  .cta h3{ font-family:'Anton',sans-serif; font-weight:400; font-size:28px; text-transform:uppercase; line-height:1.08; margin-bottom:10px; }
+  .cta h3 .hl{ color:var(--yellow); }
+  .cta p{ font-family:'Archivo',sans-serif; font-size:15px; line-height:1.5; color:#cdcac0; margin:0 auto 20px; max-width:520px; }
+  .cta a{ font-family:'Archivo',sans-serif; font-weight:900; font-size:13px; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; padding:14px 26px; background:var(--yellow); color:var(--black); display:inline-block; }
+  .cta a:hover{ background:#fff; }
+
+  footer{ background:var(--black); color:#9a978d; padding:28px 28px 42px; font-size:13px; line-height:1.6; text-align:center; border-top:1px solid #2c2a20; }
+  footer b{ color:#fff; } footer a{ color:var(--yellow); text-decoration:none; }
+
+  @media(max-width:560px){ .res-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <a class="brand" href="../index.html">BAM<span>&times;</span>AI&nbsp;MONEY&nbsp;MACHINE</a>
+    <div class="slot">Time-Back Calculator</div>
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="kicker">The Real Math</div>
+      <h1>What Is AI Costing You <span class="hl">Right Now?</span></h1>
+      <p class="deck">Everyone argues about price: 20 dollars for ChatGPT, 2,500 for a VA, 300 for an AI employee. Wrong question. The real cost is the hours you are still doing by hand. Move the sliders and see yours.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="calc" id="calcWidget">
+      <div class="calc-inputs">
+        <div class="field">
+          <label for="hrs">Hours a week on repetitive work</label>
+          <div class="hint">Email, deal of the week, follow-up, data entry, scheduling. The stuff you could hand off.</div>
+          <div class="valrow"><span class="val" id="hrsVal">10</span><span class="unit">hours / week</span></div>
+          <input type="range" id="hrs" min="1" max="40" value="10" step="1">
+        </div>
+        <div class="field">
+          <label for="rate">What one hour of your time is worth</label>
+          <div class="hint">Roughly. If you are not sure, use what you would pay someone good to replace an hour of your work.</div>
+          <div class="valrow"><span class="val" id="rateVal">$100</span><span class="unit">per hour</span></div>
+          <input type="range" id="rate" min="25" max="500" value="100" step="5">
+        </div>
+        <div class="field">
+          <label for="va">What you pay (or would pay) a VA</label>
+          <div class="hint">Set your own number. 2,500 to 3,000 a month is typical.</div>
+          <div class="valrow"><span class="val" id="vaVal">$2,500</span><span class="unit">per month</span></div>
+          <input type="range" id="va" min="0" max="4000" value="2500" step="100">
+        </div>
+      </div>
+
+      <div class="results">
+        <div class="res-grid">
+          <div class="res">
+            <div class="k">Hours you lose a year</div>
+            <div class="big" id="hoursYear">480</div>
+            <div class="sub">at 48 working weeks</div>
+          </div>
+          <div class="res">
+            <div class="k">What that time is worth</div>
+            <div class="big" id="valueYear">$48,000</div>
+            <div class="sub">hours &times; your hourly value</div>
+          </div>
+        </div>
+
+        <div class="compare">
+          <div class="lab">Yearly cost, side by side</div>
+          <div class="bars">
+            <div class="bar chatgpt">
+              <div class="top"><span class="name">ChatGPT alone</span><span class="amt" id="cgptAmt">$240</span></div>
+              <div class="track"><div class="fill" id="cgptFill" style="width:6%"></div></div>
+            </div>
+            <div class="bar ai">
+              <div class="top"><span class="name">AI system (does the work)</span><span class="amt" id="aiAmt">$3,600</span></div>
+              <div class="track"><div class="fill" id="aiFill" style="width:12%"></div></div>
+            </div>
+            <div class="bar va">
+              <div class="top"><span class="name">A VA</span><span class="amt" id="vaAmt">$30,000</span></div>
+              <div class="track"><div class="fill" id="vaFill" style="width:100%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="punch" id="punch">
+        You are leaving <b id="pHours">480 hours</b> and <b id="pValue">$48,000</b> on the table this year. An AI system that does this work runs about <b>$3,600</b>. Everything above that line is yours to keep.
+      </div>
+    </div>
+
+    <div class="assume">
+      <b>The math, out in the open.</b> Hours a year = your weekly hours &times; 48 working weeks. Value = those hours &times; your hourly number. The comparison uses common figures: ChatGPT at 20 a month (240 a year), a working AI system around 300 a month (3,600 a year), and a VA at whatever you set above &times; 12. These are directional, not a quote. Your real numbers are yours to plug in.
+    </div>
+
+    <div class="embed">
+      <div class="txt">
+        <div class="t">Put this calculator on your site</div>
+        <div class="d">Download it as one self-contained HTML file. Host it directly, or drop it into any page with an <code>&lt;iframe&gt;</code>. No dependencies, nothing to wire up.</div>
+      </div>
+      <button class="embed-btn" id="dlBtn" onclick="downloadTool()">Download The Tool (.html)</button>
+    </div>
+  </main>
+
+  <div class="cta">
+    <h3>See The Number? <span class="hl">Now Close The Gap.</span></h3>
+    <p>The AI Money Machine installs the systems that give those hours back, one a week for six weeks. Start with the 60-second readiness check.</p>
+    <a href="https://268whexy4zj.typeform.com/to/AHYprfYz" target="_blank" rel="noopener">Take The Readiness Check &rarr;</a>
+  </div>
+
+  <footer>
+    <b>AI Money Machine.</b> Practical AI systems for your real estate business.<br>
+    Want it built for you? Email <a href="mailto:dreamteam@systemology.agency">dreamteam@systemology.agency</a>.
+  </footer>
+
+<script id="calcScript">
+  var hrs=document.getElementById('hrs'), rate=document.getElementById('rate'), va=document.getElementById('va');
+  var WEEKS=48, CGPT=240, AI=3600;
+  function fmt(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+  function calc(){
+    var h=+hrs.value, r=+rate.value, v=+va.value;
+    var hoursYear=h*WEEKS, valueYear=hoursYear*r, vaYear=v*12;
+    document.getElementById('hrsVal').textContent=h;
+    document.getElementById('rateVal').textContent=fmt(r);
+    document.getElementById('vaVal').textContent=fmt(v);
+    document.getElementById('hoursYear').textContent=hoursYear.toLocaleString('en-US');
+    document.getElementById('valueYear').textContent=fmt(valueYear);
+    document.getElementById('cgptAmt').textContent=fmt(CGPT);
+    document.getElementById('aiAmt').textContent=fmt(AI);
+    document.getElementById('vaAmt').textContent=fmt(vaYear);
+    var max=Math.max(CGPT,AI,vaYear,1);
+    document.getElementById('cgptFill').style.width=(CGPT/max*100)+'%';
+    document.getElementById('aiFill').style.width=(AI/max*100)+'%';
+    document.getElementById('vaFill').style.width=(vaYear/max*100)+'%';
+    document.getElementById('pHours').textContent=hoursYear.toLocaleString('en-US')+' hours';
+    document.getElementById('pValue').textContent=fmt(valueYear);
+  }
+  [hrs,rate,va].forEach(function(el){ el.addEventListener('input',calc); });
+  calc();
+</script>
+<script>
+  function downloadTool(){
+    var css = document.getElementById('calcStyle').innerHTML;
+    var widget = document.getElementById('calcWidget').outerHTML;
+    var logic = document.getElementById('calcScript').textContent;
+    var fonts = '<link rel="preconnect" href="https://fonts.googleapis.com">'
+      + '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+      + '<link href="https://fonts.googleapis.com/css2?family=Anton&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=Archivo:wght@500;600;700;800;900&display=swap" rel="stylesheet">';
+    var doc = '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n'
+      + '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
+      + '<title>AI Time-Back Calculator</title>\n' + fonts + '\n'
+      + '<style>\n' + css + '\nbody{padding:28px 20px;}\n.calc{max-width:760px;margin:0 auto;}\n</style>\n'
+      + '</head>\n<body>\n' + widget + '\n<' + 'script>\n' + logic + '\n<\/' + 'script>\n</body>\n</html>\n';
+    var blob = new Blob([doc], {type:'text/html'});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = 'ai-time-back-calculator.html';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
+    var btn = document.getElementById('dlBtn');
+    if(btn){ var o = btn.textContent; btn.textContent = 'Downloaded ✓'; btn.classList.add('done'); setTimeout(function(){ btn.textContent = o; btn.classList.remove('done'); }, 1800); }
+  }
+</script>
+</body>
+</html>
