@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AI Money Machine Quick-Start: Your First 3 Systems, In Order</title>
+<meta name="description" content="You asked where to start. Here are the first three AI systems to build, in the order that gives you time back the fastest.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Archivo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{ --yellow:#FFD900; --black:#111; --ink:#1c1c1c; --paper:#FAF8F2; --grey:#6b6b66; --rule:#e3e0d6; --card:#fff; --maxw:720px; }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--paper); color:var(--ink); font-family:'Newsreader',Georgia,serif; font-size:20px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+
+  .topbar{ background:var(--black); color:#fff; display:flex; align-items:center; justify-content:space-between; padding:14px 28px; border-bottom:4px solid var(--yellow); }
+  .topbar .brand{ font-family:'Anton',sans-serif; font-size:22px; letter-spacing:.04em; color:#fff; text-decoration:none; }
+  .topbar .brand span{ color:var(--yellow); }
+  .topbar .slot{ font-family:'Archivo',sans-serif; font-weight:700; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--yellow); }
+
+  header.masthead{ background:var(--black); color:#fff; padding:64px 28px 72px; position:relative; overflow:hidden; }
+  header.masthead::after{ content:""; position:absolute; right:-120px; top:-120px; width:380px; height:380px; background:var(--yellow); transform:rotate(18deg); opacity:.07; }
+  .masthead-inner{ max-width:880px; margin:0 auto; position:relative; z-index:1; animation:rise .7s ease both; }
+  .kicker{ display:inline-block; background:var(--yellow); color:var(--black); font-family:'Archivo',sans-serif; font-weight:900; font-size:12px; letter-spacing:.24em; text-transform:uppercase; padding:7px 14px 6px; margin-bottom:26px; }
+  h1{ font-family:'Anton',sans-serif; font-weight:400; font-size:clamp(38px,6vw,66px); line-height:1.04; text-transform:uppercase; letter-spacing:.005em; max-width:820px; }
+  h1 .hl{ color:var(--yellow); }
+  .deck{ font-style:italic; font-size:clamp(19px,2.4vw,23px); line-height:1.5; color:#d8d5cb; max-width:640px; margin-top:24px; }
+  .byline-row{ display:flex; align-items:center; gap:14px; margin-top:34px; font-family:'Archivo',sans-serif; }
+  .byline-mark{ width:44px; height:44px; background:var(--yellow); color:var(--black); font-family:'Anton',sans-serif; font-size:18px; display:flex; align-items:center; justify-content:center; border-radius:50%; flex-shrink:0; }
+  .byline-name{ font-weight:700; font-size:14px; letter-spacing:.06em; text-transform:uppercase; }
+  .byline-sub{ font-size:12px; color:#9a978d; letter-spacing:.04em; margin-top:2px; }
+  @keyframes rise{ from{ opacity:0; transform:translateY(18px);} to{ opacity:1; transform:translateY(0);} }
+
+  main{ max-width:var(--maxw); margin:0 auto; padding:56px 28px 20px; }
+  .lede{ font-size:22px; line-height:1.6; }
+  main p{ margin:0 0 24px; }
+  main p .b{ font-weight:600; }
+
+  .frame{ background:var(--black); color:#fff; padding:26px 28px; margin:8px 0 44px; }
+  .frame .lab{ font-family:'Archivo',sans-serif; font-weight:900; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--yellow); margin-bottom:14px; }
+  .frame .steps{ display:flex; gap:0; flex-wrap:wrap; }
+  .frame .st{ flex:1; min-width:180px; padding:0 20px; border-left:3px solid var(--yellow); margin-bottom:8px; }
+  .frame .st:first-child{ padding-left:0; border-left:none; }
+  .frame .st h4{ font-family:'Anton',sans-serif; font-weight:400; font-size:24px; text-transform:uppercase; margin-bottom:4px; }
+  .frame .st p{ font-family:'Archivo',sans-serif; font-size:14px; line-height:1.45; color:#cdcac0; margin:0; }
+
+  .sys{ border:2px solid var(--black); background:var(--card); box-shadow:6px 6px 0 var(--black); margin:0 0 34px; }
+  .sys-head{ background:var(--black); color:#fff; padding:16px 22px; display:flex; align-items:baseline; gap:14px; }
+  .sys-head .num{ font-family:'Anton',sans-serif; font-size:34px; line-height:1; color:var(--yellow); }
+  .sys-head .ttl{ font-family:'Archivo',sans-serif; font-weight:800; font-size:19px; letter-spacing:.02em; text-transform:uppercase; }
+  .sys-head .tag{ margin-left:auto; font-family:'Archivo',sans-serif; font-weight:700; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--black); background:var(--yellow); padding:5px 10px; align-self:center; }
+  .sys-body{ padding:22px 24px 6px; }
+  .row{ margin-bottom:18px; }
+  .row .k{ font-family:'Archivo',sans-serif; font-weight:800; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--grey); margin-bottom:5px; }
+  .row .v{ font-size:18px; line-height:1.55; }
+  .row.move .k{ color:#111; }
+  .row.move{ background:#FFF9DB; border-left:4px solid var(--yellow); padding:14px 16px; margin:6px 0 20px; }
+
+  .why{ border-top:4px solid var(--black); padding-top:22px; margin-top:16px; }
+  .why h2{ font-family:'Anton',sans-serif; font-weight:400; font-size:30px; text-transform:uppercase; margin-bottom:12px; }
+
+  .cta{ background:var(--yellow); color:var(--black); margin:48px auto 0; max-width:var(--maxw); padding:34px 30px; }
+  .cta h3{ font-family:'Anton',sans-serif; font-weight:400; font-size:30px; text-transform:uppercase; line-height:1.05; margin-bottom:10px; }
+  .cta p{ font-family:'Archivo',sans-serif; font-size:16px; line-height:1.5; margin-bottom:20px; max-width:560px; }
+  .cta-btns{ display:flex; gap:12px; flex-wrap:wrap; }
+  .cta a{ font-family:'Archivo',sans-serif; font-weight:900; font-size:13px; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; padding:14px 24px; }
+  .cta a.primary{ background:var(--black); color:var(--yellow); }
+  .cta a.primary:hover{ background:#000; }
+  .cta a.ghost{ background:transparent; color:var(--black); border:2px solid var(--black); }
+  .cta a.ghost:hover{ background:var(--black); color:#fff; }
+
+  footer{ background:var(--black); color:#9a978d; padding:34px 28px 44px; margin-top:44px; font-size:13px; line-height:1.6; text-align:center; }
+  footer b{ color:#fff; }
+  footer a{ color:var(--yellow); text-decoration:none; }
+
+  @media(max-width:560px){ .frame .st{ border-left:none; padding-left:0; } h1{ font-size:34px; } }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <a class="brand" href="../index.html">BAM<span>&times;</span>AI&nbsp;MONEY&nbsp;MACHINE</a>
+    <div class="slot">Take-Action Guide</div>
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="kicker">Where To Actually Start</div>
+      <h1>Your First 3 AI Systems. <span class="hl">In Order.</span></h1>
+      <p class="deck">You can see the potential, but you have no time and you do not want to learn AI. You just want the light switch on. So skip the theory. Build these three, in this order, and you get hours back before you build anything else.</p>
+      <div class="byline-row">
+        <div class="byline-mark">LC</div>
+        <div>
+          <div class="byline-name">Leo Chen</div>
+          <div class="byline-sub">Founder, Systemology &middot; Leo Chen Real Estate Group</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <p class="lede">Here is the mistake almost everyone makes. They try to "learn AI." There is nothing to learn. You are not learning a tool. You are hiring an employee and training it once, the same way you would train a new assistant on day one: here is my data, here are my logins, here is how I work.</p>
+
+    <p>An assistant that never sleeps, never eats, and never forgets. These are three of the systems I run every day, and the three to build first, because they take the most time off your plate for the least setup. Do them in order. Each one feeds the next.</p>
+
+    <div class="frame">
+      <div class="lab">The whole model, three moves</div>
+      <div class="steps">
+        <div class="st"><h4>Build</h4><p>Stand up the system once. The dashboard, the automation, the rules.</p></div>
+        <div class="st"><h4>Train</h4><p>Feed it your data and your voice so it works like you, not like a stranger.</p></div>
+        <div class="st"><h4>Command</h4><p>Stop typing prompts all day. You run the business from one screen. It does the work.</p></div>
+      </div>
+    </div>
+
+    <div class="sys">
+      <div class="sys-head"><span class="num">1</span><span class="ttl">The Command Center</span><span class="tag">Start here</span></div>
+      <div class="sys-body">
+        <div class="row"><div class="k">What it does</div><div class="v">One screen for your whole business. GCI to date against your goal, the people you still need to touch today, your pipeline in four stages, and your needle-mover tasks. Not a static dashboard. It is wired to your CRM, so when a lead comes in or a deal closes, the number updates on its own.</div></div>
+        <div class="row"><div class="k">What you need</div><div class="v">Your production numbers (GCI goal, deals closed, average sale price), your current pipeline, and the short list of people you owe a follow-up. That is it to start.</div></div>
+        <div class="row move"><div class="k">Your first move</div><div class="v">Open the copy-paste Starter Pack, grab the Command Center prompt, and paste it into Claude or ChatGPT with your real numbers dropped in. You will have a working dashboard in about ten minutes. Wiring it live to your CRM is step two.</div></div>
+      </div>
+    </div>
+
+    <div class="sys">
+      <div class="sys-head"><span class="num">2</span><span class="ttl">Deal Of The Week On Autopilot</span><span class="tag">Fastest win</span></div>
+      <div class="sys-body">
+        <div class="row"><div class="k">What it does</div><div class="v">Finds a property, writes the email in your voice, and sends it on a schedule. When someone replies "what's the address" or "can I see photos," it answers on its own. A recent one went out to my 585 contacts. My time spent that week: zero minutes.</div></div>
+        <div class="row"><div class="k">What you need</div><div class="v">The cities you farm, a sense of the deal you want to feature (off-market, price drop, high equity), and a batch of emails you have already sent so it can learn how you write.</div></div>
+        <div class="row move"><div class="k">Your first move</div><div class="v">Use the Deal-of-Week prompt pack in the Starter Pack. Write one email with it today, by hand, and read it out loud. If it sounds like you, you are ready to schedule it. If a few words are off, tell it what to change and it remembers.</div></div>
+      </div>
+    </div>
+
+    <div class="sys">
+      <div class="sys-head"><span class="num">3</span><span class="ttl">Email Triage</span><span class="tag">Buys back mornings</span></div>
+      <div class="sys-body">
+        <div class="row"><div class="k">What it does</div><div class="v">Reads every email that comes in and sorts it into six buckets: reply today, reply this week, already handled, FYI, junk, ignore. For anything that needs a reply, it drafts one in your voice and waits for you. Then it texts you a summary of what it did. You stop living in your inbox.</div></div>
+        <div class="row"><div class="k">What you need</div><div class="v">Your email connected, and a short list of what "reply today" means for you versus what is just noise. The rules are simple and you tune them over the first week.</div></div>
+        <div class="row move"><div class="k">Your first move</div><div class="v">Grab the six-label rule set from the Starter Pack. Start it in draft-only mode so it sorts and drafts but never sends. After a week of watching it, you will trust it to run on a schedule.</div></div>
+      </div>
+    </div>
+
+    <div class="why">
+      <h2>Why This Order</h2>
+      <p>The Command Center comes first because it is the room you run everything else from. Once it exists, every new system has somewhere to report back to. Deal of the Week is next because it is the fastest, most visible win: a real email going to real people, in your voice, with you doing nothing. Email triage is third because it hands back your mornings, and once those first two are proving themselves, you will actually trust it to touch your inbox.</p>
+      <p>Do not try to build all ten systems at once. That is the overwhelm that stops everyone. Build one, let it run, feel the time come back, then add the next. The real question is, when do you find the time to do this while you are selling real estate? This is the answer. One system. A result you can see. Then the next.</p>
+    </div>
+  </main>
+
+  <div class="cta">
+    <h3>You Can Build This Yourself. Or We Build It With You.</h3>
+    <p>It took me around 250 hours to stand up my full system. You should not have to. The AI Money Machine is a six-week program: one system installed per week, a result every Friday, ten systems by the end. Or we build it for you. Start with the 60-second readiness check.</p>
+    <div class="cta-btns">
+      <a class="primary" href="https://268whexy4zj.typeform.com/to/AHYprfYz" target="_blank" rel="noopener">Take The Readiness Check &rarr;</a>
+      <a class="ghost" href="../toolkit/2026-07-08%20%E2%80%94%20AIMM%20Starter%20Templates%20%E2%80%94%20Copy-Paste%20Prompt%20Pack%20%E2%80%94%20LATEST.html">Get The Copy-Paste Prompts</a>
+    </div>
+  </div>
+
+  <footer>
+    <b>AI Money Machine.</b> Practical AI systems for your real estate business.<br>
+    Questions or want it built for you? Email <a href="mailto:dreamteam@systemology.agency">dreamteam@systemology.agency</a>.
+  </footer>
+
+</body>
+</html>
