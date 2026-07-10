@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planning &amp; Strategy — IG-6</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Archivo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD900;
+    --black: #111111;
+    --ink: #1c1c1c;
+    --paper: #FAF8F2;
+    --grey: #6b6b66;
+    --rule: #e3e0d6;
+    --card: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+    width: 1000px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  .poster { background: var(--paper); }
+
+  /* ===== TOP BAR ===== */
+  .topbar {
+    background: var(--black);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    border-bottom: 5px solid var(--yellow);
+  }
+  .topbar .brand {
+    font-family: 'Anton', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.04em;
+  }
+  .topbar .brand span { color: var(--yellow); }
+  .topbar .slot {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--yellow);
+  }
+
+  /* ===== MASTHEAD ===== */
+  .masthead {
+    background: var(--black);
+    color: #fff;
+    padding: 54px 48px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::after {
+    content: "";
+    position: absolute;
+    right: -140px; top: -140px;
+    width: 420px; height: 420px;
+    background: var(--yellow);
+    transform: rotate(18deg);
+    opacity: 0.07;
+  }
+  .kicker {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 8px 16px 7px;
+    margin-bottom: 24px;
+    position: relative; z-index: 1;
+  }
+  .masthead h1 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 52px;
+    line-height: 1.02;
+    text-transform: uppercase;
+    position: relative; z-index: 1;
+    max-width: 780px;
+  }
+  .masthead h1 .hl { color: var(--yellow); }
+  .masthead .deck {
+    font-style: italic;
+    font-size: 19px;
+    color: #d8d5cb;
+    max-width: 620px;
+    margin-top: 18px;
+    line-height: 1.5;
+    position: relative; z-index: 1;
+  }
+
+  /* ===== HIGHLIGHT CARDS ===== */
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 40px 48px;
+    background: var(--card);
+  }
+  .card {
+    border: 3px solid var(--black);
+    box-shadow: 7px 7px 0 var(--black);
+    padding: 26px 26px 28px;
+    background: var(--card);
+  }
+  .card .lab {
+    display: inline-block;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--yellow);
+    padding: 5px 12px 4px;
+    margin-bottom: 16px;
+  }
+  .card h3 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .card p {
+    font-size: 15px;
+    color: var(--grey);
+    line-height: 1.55;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--black);
+    color: #9a978d;
+    padding: 30px 48px 36px;
+    font-size: 13px;
+    line-height: 1.6;
+    font-family: 'Archivo', sans-serif;
+  }
+  footer b { color: #fff; }
+  footer .series {
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <div class="topbar">
+    <div class="brand">BAM<span>&times;</span>AI&nbsp;MONEY&nbsp;MACHINE</div>
+    <div class="slot">Funnel Reference</div>
+  </div>
+
+  <div class="masthead">
+    <div class="kicker">Internal Reference &middot; IG-6</div>
+    <h1>Planning &amp; <span class="hl">Strategy</span></h1>
+    <p class="deck">The canonical spine and the original production plan behind the AI Money Machine x BAM content funnel.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <span class="lab">Canonical</span>
+      <h3>7-Part Content Funnel — Design</h3>
+      <p>The approved spine: the 7 capability reveals, the per-part teaching formula, and the media map. Every article, infographic, and demo in this funnel builds off this doc.</p>
+    </div>
+    <div class="card">
+      <span class="lab">Source Plan</span>
+      <h3>BAM Content Funnel — Production Plan</h3>
+      <p>The original article slate, the BAM content anatomy, and the infographic pairings this funnel was built from.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="series">AI Money Machine x BAM &middot; Content Funnel</div>
+    <b>Planning &amp; Strategy</b> reference card. Leo Chen builds AI operating systems for real estate teams and runs them across his own brokerage and agency. He's leading the AI Money Machine cohort with BAM.
+  </footer>
+
+</div>
+</body>
+</html>
