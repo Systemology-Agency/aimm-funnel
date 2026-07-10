@@ -299,6 +299,18 @@
   }
   .cta::before { top: 0; left: 0; clip-path: polygon(0 0, 100% 0, 0 100%); }
   .cta::after  { bottom: 0; right: 0; clip-path: polygon(100% 100%, 100% 0, 0 100%); }
+  .click-hint {
+    position: absolute;
+    top: -24px; right: 16px;
+    font-size: 36px;
+    line-height: 1;
+    transform: rotate(-16deg);
+    filter: drop-shadow(2px 3px 0 rgba(17,17,17,0.28));
+    pointer-events: none;
+    z-index: 2;
+  }
+  .seeviz { position: relative; }
+  .seeviz .click-hint { top: -18px; right: -10px; font-size: 30px; }
   .cta h2 {
     border: none; margin: 0 0 14px; padding: 0;
     font-size: clamp(28px, 4vw, 40px);
@@ -447,6 +459,7 @@
   <p>Call it 40 minutes a week you used to spend, on the weeks you did it at all. Automated, that is zero. But the 40 minutes was never the real number. The real number is the listings you win because it never once stopped going out.</p>
 
   <a class="seeviz" href="https://systemology-agency.github.io/aimm-funnel/infographics/source/dow-autopilot-bam-infographic.html" target="_blank" rel="noopener">
+    <span class="click-hint" aria-hidden="true">👆</span>
     <span class="seeviz-lbl">See the whole machine on one page</span>
     <span class="seeviz-title">The Deal of the Week on Autopilot &rarr;</span>
   </a>
@@ -463,6 +476,7 @@
 </article>
 
 <div class="cta">
+  <span class="click-hint" aria-hidden="true">👆</span>
   <h2>Where's your biggest opportunity?</h2>
   <p>Take the 60-second AI Money Machine Readiness Check. Five questions. It shows you which system is leaking the most of your time right now, and whether you qualify for the full-service build, where the whole machine gets built for you.</p>
   <a class="button" href="https://systemology-agency.github.io/aimm-funnel/readiness-check/" target="_blank" rel="noopener">Take the Readiness Check &rarr;</a>

@@ -280,6 +280,16 @@
   .cta.alt::before, .cta.alt::after { background: var(--yellow); }
   .cta::before { top: 0; left: 0; clip-path: polygon(0 0, 100% 0, 0 100%); }
   .cta::after  { bottom: 0; right: 0; clip-path: polygon(100% 100%, 100% 0, 0 100%); }
+  .click-hint {
+    position: absolute;
+    top: -20px; right: 14px;
+    font-size: 32px;
+    line-height: 1;
+    transform: rotate(-16deg);
+    filter: drop-shadow(2px 3px 0 rgba(17,17,17,0.28));
+    pointer-events: none;
+    z-index: 2;
+  }
   .cta .tag {
     font-family: 'Archivo', sans-serif;
     font-weight: 800;
@@ -456,6 +466,7 @@
 
 <div class="cta-wrap">
   <div class="cta">
+    <span class="click-hint" aria-hidden="true">👆</span>
     <div class="tag">Build It Yourself</div>
     <h2>Free Build Kit</h2>
     <p>The full description, layout, brand colors, and the exact do-it-yourself prompt for Claude and Cowork. No opt-in, no form.</p>
@@ -463,6 +474,7 @@
     <div class="micro">One page &middot; instant download</div>
   </div>
   <div class="cta alt">
+    <span class="click-hint" aria-hidden="true">👆</span>
     <div class="tag">Done For You</div>
     <h2>Have It Built</h2>
     <p>Skip the building. Get it wired straight into your CRM, live, as part of the full AI Money Machine build.</p>
