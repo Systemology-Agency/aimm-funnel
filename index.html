@@ -56,6 +56,12 @@
   a.pill.src:hover{ background:var(--grey); color:#fff; border-color:var(--grey); }
   .pending{ font-family:'Archivo',sans-serif; font-weight:700; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#b0853a; background:#fff6df; border:1px dashed #d8b25a; padding:7px 12px; display:inline-block; }
 
+  /* BAM publish-status pills (2026-07-09 audit) */
+  .pill.status-published{ background:var(--yellow); border-color:var(--black); color:var(--black); cursor:pointer; }
+  .pill.status-published:hover{ background:var(--black); color:var(--yellow); }
+  span.pill.status-shared{ background:transparent; border-style:dashed; color:var(--grey); cursor:default; }
+  span.pill.status-notshared{ background:transparent; border-style:dashed; color:#b0853a; border-color:#d8b25a; cursor:default; }
+
   /* asset grid */
   .grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; padding:10px 0 0; }
   .cell{ background:var(--card); border:2px solid var(--black); box-shadow:5px 5px 0 var(--black); padding:16px 18px; }
@@ -97,6 +103,7 @@
         <div class="cap">Using AI vs. building with it, named for the agentic-AI era. The top-of-funnel anchor that hands off to the five systems.</div>
         <div class="links">
           <a class="pill y" href="articles/2026-07-08%20%E2%80%94%20Pillar%20%E2%80%94%20From%20Chat%20to%20Agent%20in%20the%20New%20AI%20Era%20%E2%80%94%20Web%20%E2%80%94%20LATEST.html" target="_blank">Read the Pillar (web)</a>
+          <span class="pill status-notshared">Not Yet Shared</span>
         </div>
       </div>
     </div>
@@ -115,6 +122,7 @@
           <a class="pill y" href="articles/2026-06-11%20%E2%80%94%20Article%201%20%E2%80%94%20Why%20Most%20Agents%27%20AI%20Stalls%20at%20the%20Chat%20Window%20%E2%80%94%20Web%20%E2%80%94%20LATEST.html" target="_blank">Read Article 1 (web)</a>
           <a class="pill" href="infographics/2026-06-11%20%E2%80%94%20The%207%20Bottlenecks%20%E2%80%94%20IG-2%20%E2%80%94%20Infographic%20%E2%80%94%20LATEST.png" target="_blank">IG-2: 7 Bottlenecks</a>
           <a class="pill" href="infographics/2026-06-11%20%E2%80%94%20Using%20AI%20vs%20Building%20an%20AI%20System%20%E2%80%94%20IG-3%20%E2%80%94%20Infographic%20%E2%80%94%20LATEST.png" target="_blank">IG-3: Using vs. Building</a>
+          <a class="pill status-published" href="https://nowbam.com/most-agents-ai-stalls-at-the-chat-window-heres-the-5-system-fix/" target="_blank">&#10003; Published by BAM &rarr;</a>
         </div>
       </div>
     </div>
@@ -137,6 +145,7 @@
           <a class="pill y" href="articles/2026-06-11%20%E2%80%94%20Article%202%20%E2%80%94%20Your%20AI%20Can%20Remember%20You%20Now%20%E2%80%94%20Web%20%E2%80%94%20LATEST.html" target="_blank">Read Article 2 (web)</a>
           <a class="pill" href="infographics/2026-06-11%20%E2%80%94%20The%205-System%20AI%20House%20%E2%80%94%20IG-1%20%E2%80%94%20Infographic%20%E2%80%94%20LATEST.png" target="_blank">IG-1: 5-System House</a>
           <a class="pill" href="infographics/2026-06-11%20%E2%80%94%20What%20Turns%20On%20Each%20Week%20%E2%80%94%20IG-4%20%E2%80%94%20Infographic%20%E2%80%94%20LATEST.png" target="_blank">IG-4: Weekly Arc</a>
+          <span class="pill status-shared">Shared with BAM</span>
         </div>
       </div>
     </div>
@@ -169,6 +178,7 @@
         <div class="cap">Build once, runs every time. No lead goes cold. (System 5: Follow-Up Machine, the room that makes the money)</div>
         <div class="links">
           <a class="pill y" href="articles/2026-06-11%20%E2%80%94%20Article%203%20%E2%80%94%20Your%20AI%20Can%20Run%20the%20Follow-Up%20Without%20You%20%E2%80%94%20Web%20%E2%80%94%20LATEST.html" target="_blank">Read Article 3 (web)</a>
+          <span class="pill status-shared">Shared with BAM</span>
         </div>
       </div>
     </div>
@@ -198,6 +208,7 @@
         <div class="links">
           <a class="pill y" href="articles/2026-07-09%20%E2%80%94%20Standalone%20%E2%80%94%20Your%20Command%20Center%20%E2%80%94%20Web%20%E2%80%94%20LATEST.html" target="_blank">Read the article (web)</a>
           <a class="pill y" href="https://systemology-agency.github.io/command-center-kit/" target="_blank">Get the free build kit</a>
+          <span class="pill status-notshared">Not Yet Shared</span>
         </div>
       </div>
     </div>
@@ -210,6 +221,7 @@
         <div class="links">
           <a class="pill y" href="articles/2026-07-09%20%E2%80%94%20Standalone%20%E2%80%94%20The%20Deal%20of%20the%20Week%20That%20Writes%20Itself%20%E2%80%94%20Web%20%E2%80%94%20LATEST.html" target="_blank">Read the article (web)</a>
           <a class="pill" href="infographics/source/dow-autopilot-bam-infographic.html" target="_blank">Infographic: DOW on Autopilot</a>
+          <span class="pill status-notshared">Not Yet Shared</span>
         </div>
       </div>
     </div>
@@ -221,6 +233,7 @@
         <div class="cap">Why building your own AI system alone costs more than it saves. Leo's own 245-hour receipt.</div>
         <div class="links">
           <a class="pill y" href="articles/2026-07-08%20%E2%80%94%20Standalone%20%E2%80%94%20The%20DIY%20Tax%20%E2%80%94%20Web%20%E2%80%94%20LATEST.html" target="_blank">Read the article (web)</a>
+          <span class="pill status-notshared">Not Yet Shared</span>
         </div>
       </div>
     </div>
@@ -274,12 +287,15 @@
       <div class="cell">
         <span class="lab">IG-6</span>
         <h4>Everything We've Built, Executive Rundown</h4>
-        <div class="links"><a class="pill y" href="infographics/2026-07-09%20%E2%80%94%20Executive%20Rundown%20%E2%80%94%20IG-6%20%E2%80%94%20Infographic%20%E2%80%94%20LATEST.png" target="_blank">View PNG</a></div>
+        <div class="links">
+          <a class="pill y" href="infographics/2026-07-09%20%E2%80%94%20Executive%20Rundown%20%E2%80%94%20IG-6%20%E2%80%94%20Infographic%20%E2%80%94%20LATEST.png" target="_blank">View PNG</a>
+          <a class="pill" href="infographics/source/ig-6-executive-rundown-infographic.html" target="_blank">Read as Web Page</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <p class="note">Built / not built: 1 pillar (locked, PA-060) + 3 articles (Article 1 locked, PA-057; Articles 2-3 draft-for-review). 6 infographics live. The AI Money Machine Readiness Check is now a live, Kit-connected quiz page (`/readiness-check/`, replaced Typeform) and is the single CTA destination across the pillar and all articles. A companion email for the pillar is drafted in Kit (held for scheduling). Still pending per the funnel design: the Part 2 "AI Can See" demo video, the Part 5 hero "AI Can Do The Work" demo video, and the Part 7 VSL page. Upstream gate for external distribution: Byron July 9 confirmation + Byron one-line intro for Part 1.</p>
+  <p class="note">Built / not built: 1 pillar (locked, PA-060) + 3 articles (Article 1 locked, PA-057; Articles 2-3 draft-for-review). 6 infographics live. The AI Money Machine Readiness Check is now a live, Kit-connected quiz page (`/readiness-check/`, replaced Typeform) and is the single CTA destination across the pillar and all articles. A companion email for the pillar is drafted in Kit (held for scheduling). Still pending per the funnel design: the Part 2 "AI Can See" demo video, the Part 5 hero "AI Can Do The Work" demo video, and the Part 7 VSL page. Upstream gate for external distribution: Byron July 9 confirmation + Byron one-line intro for Part 1.<br><br><b>BAM publish-status audit (2026-07-09):</b> checked all Vanessa Bowman / BAM email threads through 2026-07-06. Only <b>Article 1</b> is confirmed published, live at nowbam.com since June 30 under Leo's byline (verified against BAM's own Leo Chen author archive, which lists exactly one post). Article 2 and Article 3 were sent to Vanessa in the same June 23 batch ("here are 3 articles for you to publish") but never confirmed live. The Pillar, Command Center, Deal of the Week, and DIY Tax were all built July 8-9, after the last dated exchange with Vanessa, so none of them have been sent to BAM yet.</p>
 
   <footer>
     <b>AI Money Machine x BAM &mdash; Content Funnel.</b><br>
