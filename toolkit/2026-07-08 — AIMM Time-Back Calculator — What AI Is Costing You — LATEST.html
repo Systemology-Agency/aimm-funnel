@@ -80,7 +80,8 @@
   .embed-btn:active{ transform:translate(2px,2px); box-shadow:2px 2px 0 var(--black); }
   .embed-btn.done{ background:#7CFC9A; }
 
-  .cta{ background:var(--black); color:#fff; margin:40px auto 0; max-width:var(--maxw); padding:32px 30px; text-align:center; }
+  .cta{ background:var(--black); color:#fff; margin:40px auto 0; max-width:var(--maxw); padding:32px 30px; text-align:center; position:relative; }
+  .click-hint{ position:absolute; top:-22px; right:14px; font-size:32px; line-height:1; transform:rotate(-16deg); filter:drop-shadow(2px 3px 0 rgba(17,17,17,0.28)); pointer-events:none; z-index:2; }
   .cta h3{ font-family:'Anton',sans-serif; font-weight:400; font-size:28px; text-transform:uppercase; line-height:1.08; margin-bottom:10px; }
   .cta h3 .hl{ color:var(--yellow); }
   .cta p{ font-family:'Archivo',sans-serif; font-size:15px; line-height:1.5; color:#cdcac0; margin:0 auto 20px; max-width:520px; }
@@ -183,6 +184,7 @@
   </main>
 
   <div class="cta">
+    <span class="click-hint" aria-hidden="true">👆</span>
     <h3>See The Number? <span class="hl">Now Close The Gap.</span></h3>
     <p>The AI Money Machine installs the systems that give those hours back, one a week for six weeks. Start with the 60-second readiness check.</p>
     <a href="https://systemology-agency.github.io/aimm-funnel/readiness-check/" target="_blank" rel="noopener">Take The Readiness Check &rarr;</a>
