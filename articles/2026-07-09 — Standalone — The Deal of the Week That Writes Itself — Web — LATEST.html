@@ -216,6 +216,41 @@
   }
   .replies .a { font-size: 15px; color: #d8d5cb; }
 
+  .seeviz {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    text-decoration: none;
+    background: var(--yellow);
+    color: var(--black);
+    padding: 22px 28px;
+    margin: 44px 0;
+    border: 3px solid var(--black);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 6px 6px 0 var(--black);
+  }
+  .seeviz:hover { transform: translate(-2px, -2px); box-shadow: 9px 9px 0 var(--black); }
+  .seeviz-lbl {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.72;
+  }
+  .seeviz-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(19px, 2.6vw, 26px);
+    text-transform: uppercase;
+    text-align: right;
+    line-height: 1.05;
+  }
+  @media (max-width: 560px) {
+    .seeviz { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .seeviz-title { text-align: left; }
+  }
+
   .tryit {
     background: var(--black);
     color: #f2f0e8;
@@ -411,11 +446,16 @@
 
   <p>Call it 40 minutes a week you used to spend, on the weeks you did it at all. Automated, that is zero. But the 40 minutes was never the real number. The real number is the listings you win because it never once stopped going out.</p>
 
+  <a class="seeviz" href="https://systemology-agency.github.io/aimm-funnel/infographics/source/dow-autopilot-bam-infographic.html" target="_blank" rel="noopener">
+    <span class="seeviz-lbl">See the whole machine on one page</span>
+    <span class="seeviz-title">The Deal of the Week on Autopilot &rarr;</span>
+  </a>
+
   <div class="tryit">
-    <div class="timer">Takes two minutes. Costs nothing.</div>
-    <p>Open whatever AI you already use. Tell it your market, your average price point, and three words for how you write. Then ask it to draft this week's Deal of the Week for a home in that range.</p>
-    <p><em>Read it back.</em></p>
-    <p>It will not be perfect yet. But you just met the first version of a machine that could send that for you every week for the rest of your career.</p>
+    <div class="timer">Treat it like a new hire.</div>
+    <p>Open <em>Claude Cowork</em> and start a new project, just for your Deal of the Week. Then feed it everything: your market, your average price point, the way you write, the cities you watch, and the connectors it needs to run, your MLS, your email list, your CRM.</p>
+    <p>You are not asking a chatbot for one email. You are <em>training an employee</em> to run this for you, every week, for the rest of your career.</p>
+    <p>The more you teach it, the sharper it gets.</p>
   </div>
 
   <p>It still cannot pick the property with the judgment you would use, or know which name on your list is closest to buying. That is the next room in the house, and it is coming.</p>
